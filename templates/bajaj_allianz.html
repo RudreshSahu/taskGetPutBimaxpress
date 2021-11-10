@@ -1,0 +1,1607 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>BAJAJ</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #7a7977;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        html {
+            margin: 20px 320px 20px 340px;
+        }
+
+        .invoice {
+            width: 760px
+        }
+
+        .form-container {
+            background-color: white;
+            padding-left: 60px;
+            padding-right: 25px;
+            height: 1040px;
+            max-width: 720px;
+        }
+
+        #commonContainer {
+            font-family: helvatica;
+            margin: auto;
+            padding: 0px 0px;
+            box-sizing: border-box;
+            position: relative;
+        }
+
+        .firstHeading {
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .secondHeading {
+            font-size: 11.5px;
+            font-weight: 500;
+        }
+
+        .thirdHeading {
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .fourthHeading {
+            font-size: 9px;
+            font-weight: 400;
+            letter-spacing: -0.3px;
+        }
+
+        .fiveHeading {
+            font-size: 11.5px;
+            font-weight: bolder;
+            color: grey;
+        }
+
+        .sixHeading {
+            font-size: 8px;
+            font-weight: 600;
+            color: black;
+        }
+
+        .subHeading {
+            font-size: 12.2px;
+            letter-spacing: -0.2px;
+            font-weight: 700;
+            color: #006cb5;
+        }
+
+        .subHeading1 {
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            color: white;
+            font-weight: 700;
+            padding: 1.8px;
+        }
+
+        .head-div {
+            background-color: #006cb5;
+            text-align: center;
+        }
+
+
+        .customPTag {
+            font-size: 12px;
+            font-weight: 350;
+            display: inline-block;
+            letter-spacing: -0.5px;
+        }
+
+        .spanBox {
+            font-size: 10px;
+            text-align: center;
+            display: inline-block;
+            border: 0.1px solid black;
+            border-top: none;
+            vertical-align: middle;
+            line-height: 17px;
+            width: 17px;
+            height: 17px;
+            margin-top: 0px;
+            margin-left: -4.15px;
+            overflow: hidden;
+                font-weight: bold;
+        }
+
+        .spanBox1 {
+            font-size: 8px;
+            text-align: center;
+            display: inline-block;
+            border: 1px solid #Cdc9c9;
+            vertical-align: middle;
+            line-height: 9px;
+            width: 12px;
+            height: 12px;
+            margin-top: 0;
+            margin-left: -4.35px;
+        }
+
+        .spanBox2 {
+            font-size: 8px;
+            text-align: center;
+            display: inline-block;
+            border: 1px solid #444;
+            vertical-align: middle;
+            line-height: 10px;
+            width: 6px;
+            height: 6px;
+            margin-top: 0px;
+            margin-left: -4.35px;
+        }
+
+        .spanBox4 {
+            font-size: 8px;
+            text-align: center;
+            display: inline-block;
+            border: 1px solid #444;
+            width: 20px;
+            height: 16px;
+            margin-top: -17px;
+            margin-left: -4.35px;
+        }
+
+        .spanLine {
+            font-size: 10px;
+            {% comment %} font-size: 9px; {% endcomment %}
+            text-align: center;
+            display: inline-block;
+            border-bottom: 1px solid #444;
+            line-height: 9px;
+            vertical-align: middle;
+            width: 10px;
+            height: 9px;
+            margin-top: 0px;
+            margin-left: -4.35px;
+                font-weight: bold;
+
+        }
+
+        .customTextBox {
+            display: inline-block;
+            border: 1px solid #444;
+            vertical-align: 11px;
+            line-height: 20px;
+            height: 20px;
+            width: 170px;
+            font-size: 12px;
+        }
+
+        .signatureBox {
+            display: inline-block;
+            border: 1px solid #444;
+            height: 20px;
+            width: 170px;
+        }
+
+        .customMargnBottom4 {
+            margin-bottom: -5px;
+        }
+
+        .customMargnBottom8 {
+            margin-bottom: -9px;
+        }
+
+        .customMargnBottom10 {
+            margin-bottom: -5px;
+        }
+
+        .customMargnBottom15 {
+            margin-bottom: -16px;
+        }
+
+        .nameTextHints {
+            font-size: 11px;
+            color: #909090;
+        }
+
+        .claimDocumentSubmittedCheckList {
+            font-size: 8px;
+            font-weight: 600;
+            vertical-align: 30px;
+            margin-left: 495px;
+            margin-top: 6px;
+            /*float: right;*/
+        }
+
+        .unique {
+            margin-top: -5px;
+        }
+
+        .heading {
+            margin-top: 0px;
+            padding-top: 0px;
+        }
+
+        .vl {
+            border-left: 12px solid green;
+            height: 300px;
+        }
+
+        .colorbox {
+            text-align: center;
+            background-color: #c62b27;
+            color: white;
+            padding-top: 2px;
+            padding-bottom: 10px;
+            border: 4px solid #9c9998;
+            font-size: 14px;
+            letter-spacing: 1.3px;
+        }
+
+    </style>
+    <style type="text/css">
+        .tg {
+            border-collapse: collapse;
+            border-spacing: 0;
+
+        }
+
+        .tg td {
+            border-color: black;
+            border-style: solid;
+            border-width: 0.2px;
+            font-family: Arial, sans-serif;
+            font-size: 8px;
+            overflow: hidden;
+            padding: 2px 1px;
+            word-break: normal;
+            border-collapse: collapse;
+            text-align: center;
+
+        }
+
+        .tg th {
+            border-color: black;
+            border-style: solid;
+            border-width: 0.2px;
+            font-family: Arial, sans-serif;
+            font-size: 8px;
+            font-weight: normal;
+            overflow: hidden;
+            padding: 1px 1px;
+            word-break: normal;
+            border-collapse: collapse;
+
+
+        }
+
+        .tg .tg-c3ow {
+            border-color: inherit;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .tg .tg-0pky {
+            border-color: inherit;
+            text-align: center;
+            vertical-align: top;
+        }
+
+
+        .float-child {
+            width: 49.7%;
+            float: left;
+            height: 23px;
+        }
+
+        .border {
+            border: 1px solid black;
+        }
+
+    </style>
+    <script>
+        window.onload = function() {
+            console.log("it is executing");
+        };
+
+    </script>
+
+</head>
+
+<body>
+    <button id="download"> Download Form</button>
+
+    <div id="invoice">
+
+        <div class="form-container" style="margin-top: 10px">
+            <img src="../static/dist/img/bajaj_logo.png" style="position: absolute;margin-top: -23px;margin-left: 500px" width="230px" height="135px">
+            <h1 class="firstHeading" style="padding-top: 30px">Bajaj Allianz General Insurance Company Limited.</h1>
+            <h4 class="fourthHeading" style="margin-top: -8px"><b>Regd. & Head Office :</b> Bajaj Allianz House, Airport Road, Yerawada, Pune 411 006</h4>
+            <h4 class="fourthHeading" style="margin-top: -11px">CIN: U66010PN2000PLC015329</h4>
+            <h4 class="fourthHeading" style="margin-top: -2px"><b>Health Administration Team :</b> : *A - Wing 2nd Floor, Bajaj Finserv Building, Behind Weikfield IT Park, Off Nagar Road, Viman Nagar | Pune - 411 014</h4>
+            <h4 class="fourthHeading" style="margin-top: -10px"><b>Phone No.:</b>020-30305858/ 1800-103-2529 Fax: 020-30512224/ 6/ 7 | <b> Email:</b> preauth@bajajallianz.co.in</h4>
+            <div class="head-div" style="margin-top: -8px;margin-left: -59px;margin-right: -44px;width: 112%;">
+                <p class="subHeading1" style="width: 100%;">CASHLESS FORM</p>
+            </div>
+            <h2 class="secondHeading" style="text-align: center;margin-top: -12px">PLEASE FAX/SCAN PAGE 1 AND 2 ONLY</h2>
+            <h2 class="secondHeading" style="text-align: center;margin-top: -10px">REQUEST FOR CASHLESS HOSPITALISATION FOR MEDICAL INSURANCE POLICY</h2>
+            <h4 class="subHeading" style="margin-top: -10px">DETAILS OF THE PROVIDER</h4>
+            <hr style="margin-top: -15.1px">
+            <div style="margin-top: -16px">
+                <p class="customPTag" style="margin-right: 3px">Hospital Name/nursing Home Name:</p>
+                  <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine">{{hospitaldata.name.0|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.1|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.2|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.3|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.4|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.5|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.6|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.7|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.8|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.9|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.10|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.11|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.12|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.13|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.14|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.15|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.16|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.17|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.18|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.19|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.20|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.21|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.22|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.23|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.24|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.25|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.26|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.27|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.28|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.29|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.30|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.31|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.32|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.33|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.34|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.35|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.36|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.37|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.38|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.39|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.40|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.41|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.42|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.43|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.44|upper}}</span>
+          
+            </div>
+            <div style="margin-top: -14px;margin-left: 5px">
+                  <span class="spanLine">{{hospitaldata.name.45|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.46|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.47|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.48|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.49|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.50|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.51|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.52|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.53|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.54|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.55|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.56|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.57|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.58|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.59|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.60|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.61|upper}}</span>
+                <span class="spanLine">{{hospitaldata.name.62|upper}}</span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+              
+            </div>
+            <div class="unique">
+                <p class="customPTag" style="margin-right: 3px">City Name:</p>
+                <span class="spanLine" style="width: 310px" >{{hospitaldata.city|upper}}</span>
+
+                <p class="customPTag" style="margin-right: 31.1px">Pin Code:</p>
+               
+                <span class="spanBox">{{hospitaldata.pinCode.0|upper}}</span>
+                <span class="spanBox">{{hospitaldata.pinCode.1|upper}}</span>
+                <span class="spanBox">{{hospitaldata.pinCode.2|upper}}</span>
+                <span class="spanBox">{{hospitaldata.pinCode.3|upper}}</span>
+                <span class="spanBox">{{hospitaldata.pinCode.4|upper}}</span>
+                <span class="spanBox">{{hospitaldata.pinCode.5|upper}}</span>
+                <span class="spanBox">{{hospitaldata.pinCode.6|upper}}</span>
+                <span class="spanBox">{{hospitaldata.pinCode.7|upper}}</span>
+                <span class="spanBox">{{hospitaldata.pinCode.8|upper}}</span>
+                <span class="spanBox">{{hospitaldata.pinCode.9|upper}}</span>
+                <span class="spanBox">{{hospitaldata.pinCode.10|upper}}</span>
+                <span class="spanBox">{{hospitaldata.pinCode.11|upper}}</span>
+                <span class="spanBox">{{hospitaldata.pinCode.12|upper}}</span>
+                <span class="spanBox">{{hospitaldata.pinCode.13|upper}}</span>
+            </div>
+            <div class="unique" style="margin-top: -15px">
+                <p class="customPTag" style="margin-right: 7px">State Name:</p>
+                <span class="spanLine" style="width: 300px" >{{hospitaldata.state|upper}}</span>
+
+                <p class="customPTag" style="margin-right: 35.5px"> Hosp Id:</p>
+                <span class="spanBox"></span>
+                <span class="spanBox"></span>
+                <span class="spanBox"></span>
+                <span class="spanBox"></span>
+                <span class="spanBox"></span>
+                <span class="spanBox"></span>
+                <span class="spanBox"></span>
+                <span class="spanBox"></span>
+                <span class="spanBox"></span>
+                <span class="spanBox"></span>
+                <span class="spanBox"></span>
+                <span class="spanBox"></span>
+                <span class="spanBox"></span>
+                <span class="spanBox"></span>
+            </div>
+            <div class="unique" style="margin-top: -15px">
+                <p class="customPTag" style="margin-right: 6px">Landmark:</p>
+                <span class="spanLine" style="width: 310px" ></span>
+
+                <p class="customPTag" style="margin-right: 32px">Rohini ID</p>
+                <span class="spanBox">{{hospitaldata.rohini.0|upper}}</span>
+                <span class="spanBox">{{hospitaldata.rohini.1|upper}}</span>
+                <span class="spanBox">{{hospitaldata.rohini.2|upper}}</span>
+                <span class="spanBox">{{hospitaldata.rohini.3|upper}}</span>
+                <span class="spanBox">{{hospitaldata.rohini.4|upper}}</span>
+                <span class="spanBox">{{hospitaldata.rohini.5|upper}}</span>
+                <span class="spanBox">{{hospitaldata.rohini.6|upper}}</span>
+                <span class="spanBox">{{hospitaldata.rohini.7|upper}}</span>
+                <span class="spanBox">{{hospitaldata.rohini.8|upper}}</span>
+                <span class="spanBox">{{hospitaldata.rohini.9|upper}}</span>
+                <span class="spanBox">{{hospitaldata.rohini.10|upper}}</span>
+                <span class="spanBox">{{hospitaldata.rohini.11|upper}}</span>
+                <span class="spanBox">{{hospitaldata.rohini.12|upper}}</span>
+                <span class="spanBox">{{hospitaldata.rohini.13|upper}}</span>
+            </div>
+            <div class="unique" style="margin-top: -15px">
+                <p class="customPTag" style="margin-right: 6px">Hospital Contact No:</p>
+                 <span class="spanLine" style="width: 150px" ></span>
+
+                <p class="customPTag" style="margin-right: 7px">TPA desk No</p>
+                <span class="spanLine" style="width: 120px"></span>
+
+                <p class="customPTag" style="margin-right: 10px">Email id:</p>
+                <span class="spanLine" style="width: 200px">{{hospitaldata.email|upper}}</span>
+
+            </div>
+
+            <h4 class="subHeading" style="margin-top: 0px">TO BE FILLED BY THE INSURED/PATIENT</h4>
+            <hr style="margin-top: -13.5px">
+
+            <div style="margin-top: -16px">
+                <p class="customPTag" style="margin-right: 6.5px">a) Name of the Patient</p>
+                <span class="spanLine" style="width: 606px">{{bunny.patient_details.Name|upper}}</span>
+
+
+            </div>
+            <div style="margin-top: -16px">
+
+                <p class="customPTag" style="margin-right: 4px">b) Current Address of lnsured patient:</p>
+                <span class="spanLine" style="width: 520px">{{bunny.patient_details.Address|upper}}</span>
+            </div>
+            <div style="margin-top: -10px">
+
+                <p class="customPTag" style="margin-right: 1px">c) Gender:</p>
+                {% if bunny.patient_details.Gender == 'male' %}
+                <p class="customPTag" style="margin-right: 4px">Male</p>
+                <span class="spanBox"><img height="9px" src="/static/dist/tick.png" width="9px"></span>
+                <p class="customPTag" style="margin-right: 4px;margin-left: 2px">Female</p>
+                <span class="spanBox"></span>
+                {% elif bunny.patient_details.Gender == 'female' %}
+                <p class="customPTag" style="margin-right: 4px">Male</p>
+                <span class="spanBox"></span>
+                <p class="customPTag" style="margin-right: 4px;margin-left: 2px">Female</p>
+                <span class="spanBox"><img height="9px" src="/static/dist/tick.png" width="9px"></span>
+                {% else %}
+                <p class="customPTag" style="margin-right: 4px">Male</p>
+                <span class="spanBox"><img height="9px" src="/static/dist/tick.png" width="9px"></span>
+                <p class="customPTag" style="margin-right: 4px;margin-left: 2px">Female</p>
+                <span class="spanBox"></span>
+                {% endif %}
+
+                <p class="customPTag" style="margin-right: 0px;margin-left: 8px">d) Age:</p>
+                <p class="customPTag" style="margin-right: 4px;margin-left: 0px">Years</p>
+                <span class="spanBox">{{bunny.patient_details.AgeYear.0|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.AgeYear.1|upper}}</span>
+                <p class="customPTag" style="margin-right: 4px;margin-left: 4px">Months</p>
+                <span class="spanBox">{{bunny.patient_details.AgeMonth.0|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.AgeMonth.1|upper}}</span>
+                <p class="customPTag" style="margin-right: 10px;margin-left: 24px">e) Date of birth:</p>
+
+                {% if data.patient_details.DOB == '' %}
+                <span class="spanBox">D</span>
+                <span class="spanBox">D</span>
+                <span class="spanBox" style="margin-left: 2px">M</span>
+                <span class="spanBox">M</span>
+                <span class="spanBox" style="margin-left: 2px">Y</span>
+                <span class="spanBox">Y</span>
+                <span class="spanBox">Y</span>
+                <span class="spanBox">Y</span>
+                {% else %}
+                <span class="spanBox">{{bunny.patient_details.DOB.8|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.DOB.9|upper}}</span>
+                <span class="spanBox" style="margin-left: 2px">{{bunny.patient_details.DOB.5|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.DOB.6|upper}}</span>
+                <span class="spanBox" style="margin-left: 2px">{{bunny.patient_details.DOB.0|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.DOB.1|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.DOB.2|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.DOB.3|upper}}</span>
+                {% endif %}
+
+
+            </div>
+            <div style="margin-top: -16px">
+                <p class="customPTag" style="margin-right: 1px">f) Name of the Attendant:</p>
+                <span class="spanLine" style="width: 200px;"></span>
+                <p class="customPTag" style="margin-right: 0px;margin-left: 0px">g) Contact number, if any:</p>
+                <span class="spanBox">{{bunny.patient_details.Attending_Relative_Number.0|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Attending_Relative_Number.1|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Attending_Relative_Number.2|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Attending_Relative_Number.3|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Attending_Relative_Number.4|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Attending_Relative_Number.5|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Attending_Relative_Number.6|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Attending_Relative_Number.7|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Attending_Relative_Number.8|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Attending_Relative_Number.9|upper}}</span>
+            </div>
+            <div style="margin-top: -16px">
+                <p class="customPTag" style="margin-right: 1px">h)Contact number:</p>
+                <span class="spanBox">{{bunny.patient_details.Phone.0}}</span>
+                <span class="spanBox">{{bunny.patient_details.Phone.1}}</span>
+                <span class="spanBox">{{bunny.patient_details.Phone.2}}</span>
+                <span class="spanBox">{{bunny.patient_details.Phone.3}}</span>
+                <span class="spanBox">{{bunny.patient_details.Phone.4}}</span>
+                <span class="spanBox">{{bunny.patient_details.Phone.5}}</span>
+                <span class="spanBox">{{bunny.patient_details.Phone.6}}</span>
+                <span class="spanBox">{{bunny.patient_details.Phone.7}}</span>
+                <span class="spanBox">{{bunny.patient_details.Phone.8}}</span>
+                <span class="spanBox">{{bunny.patient_details.Phone.9}}</span>
+                <p class="customPTag" style="margin-right: 5px;margin-left: 10px">i) Health_Id card ID number:</p>
+                <span class="spanBox">{{bunny.patient_details.Health_Id.0|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Health_Id.1|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Health_Id.2|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Health_Id.3|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Health_Id.4|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Health_Id.5|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Health_Id.6|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Health_Id.7|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Health_Id.8|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Health_Id.9|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Health_Id.10|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Health_Id.11|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Health_Id.12|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Health_Id.13|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Health_Id.14|upper}}</span>
+            </div>
+            <div style="margin-top: -16px">
+                <p class="customPTag" style="margin-right: 1px">j) Occupation of Insured patient:</p>
+                <span class="spanLine" style="width: 130px;">{{bunny.patient_details.Occupation|upper}}</span>
+                <p class="customPTag" style="margin-right: 5px;margin-left: 2px">k) Policy number I Name of corporate:</p>
+                <span class="spanLine" style="width: 200px;">{{bunny.patient_details.Policy_Id|upper}}</span>
+
+            </div>
+            <div style="margin-top: -16px">
+                <p class="customPTag" style="margin-right: 10px">l) Employee ID:</p>
+                <span class="spanBox">{{bunny.patient_details.EmployeeId.0|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.EmployeeId.1|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.EmployeeId.2|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.EmployeeId.3|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.EmployeeId.4|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.EmployeeId.5|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.EmployeeId.6|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.EmployeeId.7|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.EmployeeId.8|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.EmployeeId.9|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.EmployeeId.10|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.EmployeeId.11|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.EmployeeId.12|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.EmployeeId.13|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.EmployeeId.14|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.EmployeeId.15|upper}}</span>
+            </div>
+            <div style="margin-top: -16px">
+                <p class="customPTag" style="margin-right: 10px">m) Currently do you have any other Mediclaim / Health insurance:</p>
+                {% if  bunny.patient_details.patient_details_HealthInsurance == 'Yes' %}
+                <span class="spanBox"><img height="10px" src="/static/dist/tick.png" width="10px"></span>
+                <p class="customPTag" style="margin-right: 10px">Yes</p>
+                <span class="spanBox"></span>
+                <p class="customPTag" style="margin-right: 10px">No</p>
+                {% else %}
+                <span class="spanBox"></span>
+                <p class="customPTag" style="margin-right: 10px">Yes</p>
+                <span class="spanBox"><img height="10px" src="/static/dist/tick.png" width="10px"></span>
+                <p class="customPTag" style="margin-right: 10px">No</p>
+                {% endif %}
+            </div>
+            <div style="margin-top: -16px">
+                <p class="customPTag" style="margin-right: 12px;margin-left: 15px">Company Name:</p>
+                <span class="spanLine" style="width:600px;">{{bunny.patient_details.HealthInsuranceYesCompanyName}}</span>
+            </div>
+            <div style="margin-top: -16px">
+                <p class="customPTag" style="margin-right: 8px;margin-left: 15px">Give details:</p>
+                <span class="spanLine" style="width:600px;">{{bunny.patient_details.Give_Company_details}}</span>
+            </div>
+            <div style="margin-top: -16px">
+                <p class="customPTag" style="margin-right: 10px">n) Do you have a family physician:</p>
+                {% if bunny.patient_details.PhysicianYesPhysicianName != '' %}
+                <span class="spanBox"><img height="10px" src="/static/dist/tick.png" width="10px"></span>
+                <p class="customPTag" style="margin-right: 10px">Yes</p>
+                <span class="spanBox"></span>
+                <p class="customPTag" style="margin-right: 11px">No</p>
+                {% else %}
+                <span class="spanBox"></span>
+                <p class="customPTag" style="margin-right: 10px">Yes</p>
+                <span class="spanBox"><img height="10px" src="/static/dist/tick.png" width="10px"></span>
+                <p class="customPTag" style="margin-right: 11px">No</p>
+                {% endif %}
+                <p class="customPTag" style="margin-right: 10px">o) Name of the family physician:</p>
+                <span class="spanLine" style="width: 200px;">{{bunny.patient_details.PhysicianYesPhysicianName|upper}}</span>
+            </div>
+            <div style="margin-top: -16px">
+                <p class="customPTag" style="margin-right: 10px">p) Contact number, if any:</p>
+                <span class="spanBox">{{bunny.patient_details.PhysicianYesPhysicianContactNum.0|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.PhysicianYesPhysicianContactNum.1|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.PhysicianYesPhysicianContactNum.2|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.PhysicianYesPhysicianContactNum.3|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.PhysicianYesPhysicianContactNum.4|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.PhysicianYesPhysicianContactNum.5|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.PhysicianYesPhysicianContactNum.6|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.PhysicianYesPhysicianContactNum.7|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.PhysicianYesPhysicianContactNum.8|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.PhysicianYesPhysicianContactNum.9|upper}}</span>
+
+            </div>
+            <div style="margin-top: -16px">
+                <p class="customPTag" style="margin-right: 10px">q) Insured E-mail id</p>
+                <span class="spanLine" style="width: 220px;">{{bunny.patient_details.Email|upper}}</span>
+                <p class="customPTag" style="margin-right: 0px"><b>(PLEASE COMPLETE DECLARATION ON THE REVERSE SIDE OF THIS FORM)</b></p>
+
+            </div>
+
+            <h4 class="subHeading" style="margin-top: -10px">TO BE FILLED BY THE TREATING DOCTOR / HOSPITAL</h4>
+            <hr style="margin-top: -13.5px">
+
+            <div style="margin-top: -16px">
+                <p class="customPTag" style="margin-right: 5px">a) Name of the treating doctor:</p>
+                <span class="spanLine" style="width: 240px;">{{bunny.hospital_details.Treating_Doctor_Name|upper}}</span>
+
+                <p class="customPTag" style="margin-right: 5px"> b) Contact number:</p>
+                <span class="spanBox">{{bunny.hospital_details.Contact_number.0|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.Contact_number.1|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.Contact_number.2|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.Contact_number.3|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.Contact_number.4|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.Contact_number.5|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.Contact_number.6|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.Contact_number.7|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.Contact_number.8|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.Contact_number.9|upper}}</span>
+            </div>
+            <div style="margin-top: -20px">
+                <p class="customPTag" style="margin-right: 12px">c) Nature of ILLNESS / Disease with presenting complaints</p>
+                <span class="spanLine" style="width: 400px;">{{bunny.patient_details.Nature_Of_Illness|upper}}</span>
+            </div>
+            <div style="margin-top: -20px">
+                <p class="customPTag" style="margin-right: 16px">d) Relevant clinical findings:</p>
+                <span class="spanLine" style="width: 550px;">{{bunny.patient_details.Relevant_Critical_Findings|upper}}</span>
+            </div>
+            <div style="margin-top: -20px">
+                <p class="customPTag" style="margin-right: 8px">e) Duration of the present ailment:</p>
+                <span class="spanBox">{{bunny.patient_details.Duration_Of_Present_Ailments.0|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Duration_Of_Present_Ailments.1|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Duration_Of_Present_Ailments.2|upper}}</span>
+                <p class="customPTag" style="margin-right: 16px">Days</p>
+                <p class="customPTag" style="margin-right: 16px;margin-left: 10px">i. Date of first consultation:</p>
+                <span class="spanBox">{{bunny.patient_details.Date_Of_First_Consultation.8|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Date_Of_First_Consultation.9|upper}}</span>
+                <span class="spanBox" style="margin-left: 5px">{{bunny.patient_details.Date_Of_First_Consultation.5|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Date_Of_First_Consultation.6|upper}}</span>
+                <span class="spanBox" style="margin-left: 5px">{{bunny.patient_details.Date_Of_First_Consultation.0|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Date_Of_First_Consultation.1|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Date_Of_First_Consultation.2|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.Date_Of_First_Consultation.3|upper}}</span>
+            </div>
+            <div style="margin-top: -20px">
+                <p class="customPTag" style="margin-right: 3px;margin-left: 10px">i. Past history of present ailment if any:</p>
+                <span class="spanLine" style="width: 500px;">{{bunny.patient_details.Past_History_Of_Present_Ailments|upper}}</span>
+            </div>
+            <div style="margin-top: -20px">
+                <p class="customPTag" style="margin-right: 8px">f) Provisional diagnosis</p>
+                <span class="spanLine" style="width: 300px;">{{bunny.patient_details.Provision_Diagnosis|upper}}</span>
+                <p class="customPTag" style="margin-right: 2px">i. ICD 10 Code:</p>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.0|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.1|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.2|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.3|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.4|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.5|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.6|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.7|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.8|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.9|upper}}</span>
+            </div>
+           
+            <div style="margin-top: -20px">
+                <p class="customPTag" style="margin-right: 8px">g) Proposed line of treatment:</p>
+                {% if bunny.patient_details.doctor_proposedLineOfTreatment_Medical_Managment == 'Yes' %}
+
+                <span class="spanBox" style="margin-left: 20px;"><img height="9px" src="/static/dist/tick.png"
+                                width="9px"></span>
+                <span class="customPTag">Medical Management</span>
+                {% else %}
+                <span class="spanBox" style="margin-left: 20px;"></span>
+                <span class="customPTag">Medical Management</span>
+                {% endif %}
+                {% if bunny.patient_details.doctor_proposedLineOfTreatment_Surgical_Managment == 'Yes'%}
+                <span class="spanBox" style="margin-left: 20px;"><img height="9px" src="/static/dist/tick.png"
+                                width="9px"></span>
+                <span class="customPTag">Surgical Management</span>
+                {% else %}
+                <span class="spanBox" style="margin-left: 20px;"></span>
+                <span class="customPTag">Surgical Management</span>
+                {% endif %}
+                {% if bunny.patient_details.doctor_proposedLineOfTreatment_Intensive_Care == 'Yes'%}
+                <span class="spanBox" style="margin-left: 20px;"><img height="9px" src="/static/dist/tick.png"
+                                width="9px"></span>
+                <span class="customPTag">Intensive care</span>
+                {% else %}
+                <span class="spanBox" style="margin-left: 20px;"></span>
+                <span class="customPTag">Intensive care</span>
+                {% endif %}
+                {% if bunny.patient_details.doctor_proposedLineOfTreatment_Investigation == 'Yes'%}
+                <span class="spanBox" style="margin-left: 20px;"><img height="9px" src="/static/dist/tick.png"
+                                width="9px"></span>
+                <span class="customPTag">Investigation</span>
+                {% else %}
+                <span class="spanBox" style="margin-left: 20px;"></span>
+                <span class="customPTag">Investigation</span>
+                {% endif %}
+                <br>
+                {% if bunny.patient_details.doctor_proposedLineOfTreatment_Allopathic_Treatment == 'Yes'%}
+                <span class="spanBox" style="margin-left: 150px; margin-top: -20px;"><img height="9px" src="/static/dist/tick.png" width="9px"></span>
+                <span class="customPTag" style="margin-top: -40px !important;"> Non allopathic treatment</span>
+                {% else %}
+                <span class="spanBox" style="margin-left: 150px;margin-top: -20px;"></span>
+                <span class="customPTag" style="margin-top: -20px;"> Non allopathic treatment</span>
+                {% endif %}
+                
+            </div>
+            <div style="margin-top: -15px">
+                <p class="customPTag" style="margin-right: 4px">h) If Investigation & I or Medical Management provide details</p>
+                <span class="spanLine" style="width: 400px;">{{bunny.patient_details.If_Investigation_Or_Medical_Management_Provide_Details|upper}}</span>
+
+            </div>
+            <div style="margin-top: -20px">
+                <p class="customPTag" style="margin-right: 7.5px;margin-left: 12px">i) Route of drug administration:</p>
+                <span class="spanLine" style="width: 520px;">{{bunny.patient_details.Route_Of_Drug_Administration|upper}}</span>
+
+            </div>
+            <div style="margin-top: -9.5px">
+                <span class="spanLine" style="margin-left: 12px"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+
+            </div>
+            <div style="margin-top: -6px">
+                <p class="customPTag" style="margin-right: 7.5px">i) If Surgical, name of surgery</p>
+                <span class="spanLine" style="width: 250px;">{{bunny.patient_details.If_Surgical_Name_of_Surgery|upper}}</span>
+                <p class="customPTag" style="margin-right: 7.5px">i. ICD 10 PCS Code:</p>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.0|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.1|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.2|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.3|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.4|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.5|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.6|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.7|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.8|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.ICD_Code_10_PCS.9|upper}}</span>
+
+            </div>
+            <div style="margin-top: -18px">
+                <p class="customPTag" style="margin-right: 7.5px">j) If other treatments provide details</p>
+                <span class="spanLine" style="width: 520px;">{{bunny.patient_details.If_Other_Treatment_Provide_Details}}</span>
+
+            </div>
+            <div style="margin-top: -20px">
+                <p class="customPTag" style="margin-right: 7.5px">k) How did injury occur:</p>
+                <span class="spanLine" style="width: 580px;">{{bunny.patient_details.How_Did_Injury_Occur|upper}}</span>
+            </div>
+            <div style="margin-top: -20px">
+                <p class="customPTag" style="margin-right: 7.5px">I) In case of accident:</p>
+                <p class="customPTag" style="margin-right: 7.5px">i. Is it RTA:</p>
+                {% if bunny.patient_details.In_Case_Of_Accident == 'Yes' %}
+                <span class="spanBox"><img height="9px" src="/static/dist/tick.png" width="9px"></span>
+                <p class="customPTag" style="margin-right: 7.5px">Yes</p>
+                <span class="spanBox"></span>
+                <p class="customPTag" style="margin-right: 7.5px">No</p>
+                {% elif bunny.patient_details.Is_It_RTA == 'No'%}
+                <span class="spanBox"></span>
+                <p class="customPTag" style="margin-right: 7.5px">Yes</p>
+                <span class="spanBox"><img height="9px" src="/static/dist/tick.png" width="9px"></span>
+                <p class="customPTag" style="margin-right: 7.5px">No</p>
+                {% else %}
+                <span class="spanBox"></span>
+                <p class="customPTag" style="margin-right: 7.5px">Yes</p>
+                <span class="spanBox"></span>
+                <p class="customPTag" style="margin-right: 7.5px">No</p>
+                {% endif %}
+                <p class="customPTag" style="margin-right: 7.5px;margin-left: 80px">ii. Date of injury:</p>
+                <span class="spanBox">{{bunny.hospital_details.DateofInjury.8|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.DateofInjury.9|upper}}</span>
+                <span class="spanBox" style="margin-left: 5px">{{bunny.hospital_details.DateofInjury.5|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.DateofInjury.6|upper}}</span>
+                <span class="spanBox" style="margin-left: 5px">{{bunny.hospital_details.DateofInjury.0|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.DateofInjury.1|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.DateofInjury.2|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.DateofInjury.3|upper}}</span>
+            </div>
+            <div style="margin-top: -18px">
+                <p class="customPTag" style="margin-right: 12px;margin-left: 12px">iii. Reported to Police:</p>
+                {% if bunny.patient_details.Reported_To_Police == 'Yes' %}
+                <span class="spanBox"><img height="9px" src="/static/dist/tick.png" width="9px"></span>
+                <p class="customPTag" style="margin-right: 7.5px">Yes</p>
+                <span class="spanBox"></span>
+                <p class="customPTag" style="margin-right: 7.5px">No</p>
+                {% elif bunny.patient_details.Reported_To_Police == 'No' %}
+                <span class="spanBox"></span>
+                <p class="customPTag" style="margin-right: 7.5px">Yes</p>
+                <span class="spanBox"><img height="9px" src="/static/dist/tick.png" width="9px"></span>
+                <p class="customPTag" style="margin-right: 7.5px">No</p>
+                {% else %}
+                <span class="spanBox"></span>
+                <p class="customPTag" style="margin-right: 7.5px">Yes</p>
+                <span class="spanBox"></span>
+                <p class="customPTag" style="margin-right: 7.5px">No</p>
+                {% endif %}
+                <p class="customPTag" style="margin-right: 32px;margin-left: 134px">iv. FIR No .</p>
+                <span class="spanBox">{{bunny.patient_details.FIR_Number.0|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.FIR_Number.1|upper}}</span>
+                <span class="spanBox" style="margin-left: 5px">{{bunny.patient_details.FIR_Number.2|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.FIR_Number.3|upper}}</span>
+                <span class="spanBox" style="margin-left: 5px">{{bunny.patient_details.FIR_Number.4|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.FIR_Number.5|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.FIR_Number.6|upper}}</span>
+                <span class="spanBox">{{bunny.patient_details.FIR_Number.7|upper}}</span>
+            </div>
+            <div style="margin-top: -18px">
+                <p class="customPTag" style="margin-right: 10px;margin-left: 12px">v. Injury/Disease caused due to substance abuse/alcohol consumption:</p>
+                {% if bunny.patient_details.Injury_Disease_Caused_Due_To_Substance_Abuse_Alcohol_Consumption_ == 'Yes' %}
+                <span class="spanBox"><img height="9px" src="/static/dist/tick.png" width="9px"></span>
+                <p class="customPTag" style="margin-right: 7.5px">Yes</p>
+                <span class="spanBox"></span>
+                <p class="customPTag" style="margin-right: 7.5px">No</p>
+                {% else %}
+                <span class="spanBox"></span>
+                <p class="customPTag" style="margin-right: 7.5px">Yes</p>
+                <span class="spanBox"><img height="9px" src="/static/dist/tick.png" width="9px"></span>
+                <p class="customPTag" style="margin-right: 7.5px">No</p>
+                {% endif %}
+            </div>
+            <div style="margin-top: -18px">
+                <p class="customPTag" style="margin-right: 10px;margin-left: 12px">vi. Test conducted to establish this :</p>
+                {% if bunny.patient_details.doctor_testAlcohol == "Yes" %}
+                <span class="spanBox"><img height="9px" src="/static/dist/tick.png" width="9px"></span>
+                <p class="customPTag" style="margin-right: 7.5px">Yes</p>
+                <span class="spanBox"></span>
+                <p class="customPTag" style="margin-right: 7.5px">No</p>
+                {% else %}
+                <span class="spanBox"></span>
+                <p class="customPTag" style="margin-right: 7.5px">Yes</p>
+                <span class="spanBox"><img height="9px" src="/static/dist/tick.png" width="9px"></span>
+                <p class="customPTag" style="margin-right: 7.5px">No</p>
+                {% endif %}
+                <p class="customPTag" style="margin-right: 10px;margin-left: 12px">(If Yes attach reports)</p>
+            </div>
+            <div style="margin-top: -20px">
+                <p class="customPTag" style="margin-right: 1px">I) In case of Maternity:</p>
+                {% if bunny.patient_details.G == 'Yes' %}
+                <p class="customPTag" style="margin-right: 4px">G</p>
+                <span class="spanBox"><img height="9px" src="/static/dist/tick.png" width="9px"></span>
+                {% else %}
+                <p class="customPTag" style="margin-right: 4px">G</p>
+                <span class="spanBox"></span>
+                {% endif %}
+
+                {% if bunny.patient_details.P == 'Yes' %}
+                <p class="customPTag" style="margin-right: 4px">P</p>
+                <span class="spanBox"><img height="9px" src="/static/dist/tick.png" width="9px"></span>
+                {% else %}
+                <p class="customPTag" style="margin-right: 4px">P</p>
+                <span class="spanBox"></span>
+                {% endif %}
+
+                {% if bunny.patient_details.L == 'Yes' %}
+                <p class="customPTag" style="margin-right: 4px">L</p>
+                <span class="spanBox"><img height="9px" src="/static/dist/tick.png" width="9px"></span>
+                {% else %}
+                <p class="customPTag" style="margin-right: 4px">L</p>
+                <span class="spanBox"></span>
+                {% endif %}
+
+                {% if bunny.patient_details.A == 'Yes' %}
+                <p class="customPTag" style="margin-right: 4px">A</p>
+                <span class="spanBox"><img height="9px" src="/static/dist/tick.png" width="9px"></span>
+                {% else %}
+                <p class="customPTag" style="margin-right: 4px">A</p>
+                <span class="spanBox"></span>
+                {% endif %}
+
+
+                <p class="customPTag" style="margin-right: 0px;margin-left: 2px">Expected date of Delivery:</p>
+                <span class="spanBox">{{bunny.hospital_details.ExpectedDateOfDelivery.8|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.ExpectedDateOfDelivery.9|upper}}</span>
+                <span class="spanBox" style="margin-left: 3px">{{bunny.hospital_details.ExpectedDateOfDelivery.5|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.ExpectedDateOfDelivery.6|upper}}</span>
+                <span class="spanBox" style="margin-left: 3px">{{bunny.hospital_details.ExpectedDateOfDelivery.0|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.ExpectedDateOfDelivery.1|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.ExpectedDateOfDelivery.2|upper}}</span>
+                <span class="spanBox">{{bunny.hospital_details.ExpectedDateOfDelivery.3|upper}}</span>
+                <p class="customPTag" style="margin-right: 0px;margin-left: 2px">LMP:</p>
+                <span class="spanBox"></span>
+                <span class="spanBox"></span>
+                <span class="spanBox" style="margin-left: 3px"></span>
+                <span class="spanBox"></span>
+                <span class="spanBox" style="margin-left: 3px"></span>
+                <span class="spanBox"></span>
+                <span class="spanBox"></span>
+            </div>
+
+        </div>
+        {% comment %} <!---------------------------------End of first page---------------------------> {% endcomment %}
+
+        <div class="form-container" style="margin-top: 10px">
+            <div class="float-child" style="padding-top: 20px;width: 60%">
+                <h4 class="subHeading" style="margin-top: 0px">Details of the patient admitted</h4>
+                <div style="margin-top: -6px">
+                    <p class="customPTag" style="margin-right: 5px">a) Date of admission:</p>
+                    <span class="spanBox">{{bunny.hospital_details.Date_of_Admission.8|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Date_of_Admission.9|upper}}</span>
+                    <span class="spanBox" style="margin-left: 3px">{{bunny.hospital_details.Date_of_Admission.5|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Date_of_Admission.6|upper}}</span>
+                    <span class="spanBox" style="margin-left: 3px">{{bunny.hospital_details.Date_of_Admission.0|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Date_of_Admission.1|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Date_of_Admission.2|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Date_of_Admission.3|upper}}</span>
+                    <p class="customPTag" style="margin-right: 5px;margin-left: 20px">b) Time:</p>
+                    
+                    {% if bunny.hospital_details.admission_time.1 == ':' %}
+                    <span class="spanBox">0</span>
+                    <span class="spanBox">{{bunny.hospital_details.admission_time.0|upper}}</span>
+                    <span class="spanBox" style="margin-left: 5px">{{bunny.hospital_details.admission_time.2|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.admission_time.3|upper}}</span>
+                    {% else %}
+                    <span class="spanBox">{{bunny.hospital_details.admission_time.0|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.admission_time.1|upper}}</span>
+                    <span class="spanBox" style="margin-left: 5px">{{bunny.hospital_details.admission_time.3|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.admission_time.4|upper}}</span>
+
+                    {% endif %}
+                </div>
+                <div style="margin-top: -16px">
+                    <p class="customPTag" style="margin-right: 5px">c) Is this an emergency/a planned hospitalization event?:</p>
+                    {% if bunny.patient_details.isThisAEmergencyPlannedHospitalization == "Emergency" %}
+                    <span class="spanBox"><img height="9px" src="/static/dist/tick.png" width="9px"></span>
+                    <p class="customPTag" style="margin-right: 5px">Emergency</p>
+                    <span class="spanBox"></span>
+                    <p class="customPTag" style="margin-right: 5px">Planned</p>
+                    {% elif bunny.patient_details.isThisAEmergencyPlannedHospitalization == "Planned" %}
+                    <span class="spanBox"></span>
+                    <p class="customPTag" style="margin-right: 5px">Emergency</p>
+                    <span class="spanBox"><img height="9px" src="/static/dist/tick.png" width="9px"></span>
+                    <p class="customPTag" style="margin-right: 5px">Planned</p>
+                    {% else %}
+                    <span class="spanBox"></span>
+                    <p class="customPTag" style="margin-right: 5px">Emergency</p>
+                    <span class="spanBox"></span>
+                    <p class="customPTag" style="margin-right: 5px">Planned</p>
+                    {% endif %}
+                </div>
+                <div style="margin-top: -16px">
+                    <p class="customPTag" style="margin-right: 5px">d) Expected no. of days stay in hospital:</p>
+                    <span class="spanBox">{{bunny.hospital_details.Days_In_Hospital.0|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Days_In_Hospital.1|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Days_In_Hospital.2|upper}}</span>
+                    <p class="customPTag" style="margin-right: 5px">Days</p>
+                    <p class="customPTag" style="margin-right: 5px;margin-left: 15px">e) Room Type </p>
+                    <span class="spanBox" style="width: 55px;border-top: 0.1px solid black">{{bunny.hospital_details.Room_Type|upper}}</span>
+                </div>
+                <div style="margin-top: -16px">
+                    <p class="customPTag" style="margin-right: 10px">f) Expected no.of days in ICU</p>
+                    <span class="spanBox">{{bunny.hospital_details.Days_In_ICU.0|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Days_In_ICU.1|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Days_In_ICU.2|upper}}</span>
+                    <p class="customPTag" style="margin-right: 5px">Days</p>
+                </div>
+                <div style="margin-top: -16px">
+                    <p class="customPTag" style="margin-right: 10px">g) Per Day Room Rent + Nursing &</p>
+                </div>
+                <div style="margin-top: -16px">
+                    <p class="customPTag" style="margin-right: 115px;margin-left: 12px">Service Charges + Patient's Diet:</p>
+                    <p class="customPTag" style="margin-right: 2px">Rs.</p>
+                    <span class="spanBox">{{bunny.hospital_details.Per_Day_Room_Rent.0|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Per_Day_Room_Rent.1|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Per_Day_Room_Rent.2|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Per_Day_Room_Rent.3|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Per_Day_Room_Rent.4|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Per_Day_Room_Rent.5|upper}}</span>
+
+                </div>
+                <div style="margin-top: -16px">
+                    <p class="customPTag" style="margin-right: 50px;margin-left: 0px">h) Expected cost for investigation + diagnostics.:</p>
+                    <p class="customPTag" style="margin-right: 2px">Rs.</p>
+                    <span class="spanBox">{{bunny.hospital_details.Cost_Of_Investigation.0|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Cost_Of_Investigation.1|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Cost_Of_Investigation.2|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Cost_Of_Investigation.3|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Cost_Of_Investigation.4|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.Cost_Of_Investigation.5|upper}}</span>
+
+                </div>
+                <div style="margin-top: -16px">
+                    <p class="customPTag" style="margin-right: 208px;margin-left: 0px">i) ICU Charges:</p>
+                    <p class="customPTag" style="margin-right: 2px">Rs.</p>
+                    <span class="spanBox">{{bunny.hospital_details.ICU_Charges.0|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.ICU_Charges.1|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.ICU_Charges.2|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.ICU_Charges.3|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.ICU_Charges.4|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.ICU_Charges.5|upper}}</span>
+
+                </div>
+                <div style="margin-top: -16px">
+                    <p class="customPTag" style="margin-right: 212px;margin-left: 0px">j) OT Charges:</p>
+                    <p class="customPTag" style="margin-right: 2px">Rs.</p>
+                    <span class="spanBox">{{bunny.hospital_details.OT_Charges.0|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.OT_Charges.1|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.OT_Charges.2|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.OT_Charges.3|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.OT_Charges.4|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.OT_Charges.5|upper}}</span>
+
+                </div>
+                <div style="margin-top: -16px">
+                    <p class="customPTag" style="margin-right: 43px;margin-left: 0px;vertical-align: -13px">k) Professional fees Surgeon + Anesthetist Fees +<br> consultation Charges </p>
+                    <p class="customPTag" style="margin-right: 2px">Rs.</p>
+                    <span class="spanBox">{{bunny.hospital_details.ProfessionalFeesSurgeon.0|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.ProfessionalFeesSurgeon.1|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.ProfessionalFeesSurgeon.2|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.ProfessionalFeesSurgeon.3|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.ProfessionalFeesSurgeon.4|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.ProfessionalFeesSurgeon.5|upper}}</span>
+
+                </div> 
+                <div style="margin-top: -16px">
+                    <p class="customPTag" style="margin-right: 53px;margin-left: 0px;vertical-align: -13px">l) Medicines + Consumables + Cost of Implants<br> specify) </p>
+                    <p class="customPTag" style="margin-right: 2px">Rs.</p>
+                    <span class="spanBox">{{bunny.hospital_details.cost_Of_Implant.0|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.cost_Of_Implant.1|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.cost_Of_Implant.2|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.cost_Of_Implant.3|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.cost_Of_Implant.4|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.cost_Of_Implant.5|upper}}</span>
+
+                </div>
+                <div style="margin-top: -16px">
+                    <p class="customPTag" style="margin-right: 122px;margin-left: 12px">Other hospital expenses if any:</p>
+                    <p class="customPTag" style="margin-right: 2px">Rs.</p>
+                    <span class="spanBox">{{bunny.hospital_details.OtherHospitalIfAny.0|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.OtherHospitalIfAny.1|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.OtherHospitalIfAny.2|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.OtherHospitalIfAny.3|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.OtherHospitalIfAny.4|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.OtherHospitalIfAny.5|upper}}</span>
+                </div>
+                <div style="margin-top: -16px">
+                    <p class="customPTag" style="margin-right: 45px;margin-left: 0px">m) All inclusive package charges if any applicable</p>
+                    <p class="customPTag" style="margin-right: 2px">Rs.</p>
+                    <span class="spanBox">{{bunny.hospital_details.All_Including_Package.0|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.All_Including_Package.1|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.All_Including_Package.2|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.All_Including_Package.3|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.All_Including_Package.4|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.All_Including_Package.5|upper}}</span>
+                </div>
+                <div style="margin-top: -16px">
+                    <p class="customPTag" style="margin-right: 65px;margin-left: 0px">n) Sum Total expected cost of hospitalization</p>
+                    <p class="customPTag" style="margin-right: 2px">Rs.</p>
+                    <span class="spanBox">{{bunny.hospital_details.total.0|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.total.1|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.total.2|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.total.3|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.total.4|upper}}</span>
+                    <span class="spanBox">{{bunny.hospital_details.total.5|upper}}</span>
+
+                </div>
+            </div>
+
+            <div class="float-child" style="padding-top: 20px;width: 40%">
+                <h4 class="subHeading" style="margin-top: 0px;margin-left: 5px">Mandatory: Past History of any <br> chronic illness (If yes, since (month / year)</h4>
+                <div style="margin-top: -16px;margin-left: 10px">
+                    <span class="spanBox"></span>
+                    <p class="customPTag" style="margin-right: 120px;margin-left: 0px">Diabetes</p>
+                    <span class="spanBox">{{bunny.patient_details.MandatoryPastHistoryMonth.0|upper}}</span>
+                    <span class="spanBox">{{bunny.patient_details.MandatoryPastHistoryMonth.1|upper}}</span>
+                    <span class="spanBox" style="margin-left: 5px">{{bunny.patient_details.MandatoryPastHistoryYear.0|upper}}</span>
+                    <span class="spanBox">{{bunny.patient_details.MandatoryPastHistoryYear.1|upper}}</span>
+                </div>
+                <div style="margin-top: -16px;margin-left: 10px">
+                    <span class="spanBox"></span>
+                    <p class="customPTag" style="margin-right: 95px;margin-left: 0px">Heart Disease</p>
+                    <span class="spanBox">{{bunny.patient_details.HeartDiseaseMonth.0|upper}}</span>
+                    <span class="spanBox">{{bunny.patient_details.HeartDiseaseMonth.1|upper}}</span>
+                    <span class="spanBox" style="margin-left: 5px">{{bunny.patient_details.HeartDiseaseYear.0|upper}}</span>
+                    <span class="spanBox">{{bunny.patient_details.HeartDiseaseYear.1|upper}}</span>
+                </div>
+                <div style="margin-top: -16px;margin-left: 10px">
+                    <span class="spanBox"></span>
+                    <p class="customPTag" style="margin-right: 98px;margin-left: 0px">Hypertension</p>
+                    <span class="spanBox">{{bunny.patient_details.HypertensionMonth.0|upper}}</span>
+                    <span class="spanBox">{{bunny.patient_details.HypertensionMonth.1|upper}}</span>
+                    <span class="spanBox" style="margin-left: 5px">{{bunny.patient_details.HypertensionYear.0|upper}}</span>
+                    <span class="spanBox">{{bunny.patient_details.MandatoryPastHistoryYear.1|upper}}</span>
+                </div>
+                <div style="margin-top: -16px;margin-left: 10px">
+                    <span class="spanBox"></span>
+                    <p class="customPTag" style="margin-right: 91px;margin-left: 0px">Hyperlipidemia</p>
+                    <span class="spanBox">{{bunny.patient_details.HyperlipidemiasMonth.0|upper}}</span>
+                    <span class="spanBox">{{bunny.patient_details.HyperlipidemiasMonth.1|upper}}</span>
+                    <span class="spanBox" style="margin-left: 5px">{{bunny.patient_details.HyperlipidemiasYear.0|upper}}</span>
+                    <span class="spanBox">{{bunny.patient_details.HyperlipidemiasYear.1|upper}}</span>
+                </div>
+                <div style="margin-top: -16px;margin-left: 10px">
+                    <span class="spanBox"></span>
+                    <p class="customPTag" style="margin-right: 98px;margin-left: 0px">Osteoarthritis</p>
+                    <span class="spanBox">{{bunny.patient_details.OsteoarthritisMonth.0|upper}}</span>
+                    <span class="spanBox">{{bunny.patient_details.OsteoarthritisMonth.1|upper}}</span>
+                    <span class="spanBox" style="margin-left: 5px">{{bunny.patient_details.OsteoarthritisYear.0|upper}}</span>
+                    <span class="spanBox">{{bunny.patient_details.OsteoarthritisYear.1|upper}}</span>
+                </div>
+                <div style="margin-top: -16px;margin-left: 10px">
+                    <span class="spanBox"></span>
+                    <p class="customPTag" style="margin-right: 39px;margin-left: 0px">Asthma/COPD/Bronchitis</p>
+                    <span class="spanBox">{{bunny.patient_details.AsthmaOrCOPDOrBronchitisMonth.0|upper}}</span>
+                    <span class="spanBox">{{bunny.patient_details.AsthmaOrCOPDOrBronchitisMonth.1|upper}}</span>
+                    <span class="spanBox" style="margin-left: 5px">{{bunny.patient_details.AsthmaOrCOPDOrBronchitisYear.0|upper}}</span>
+                    <span class="spanBox">{{bunny.patient_details.AsthmaOrCOPDOrBronchitisYear.1|upper}}</span>
+                </div>
+                <div style="margin-top: -16px;margin-left: 10px">
+                    <span class="spanBox"></span>
+                    <p class="customPTag" style="margin-right: 128px;margin-left: 0px">Cancer</p>
+                    <span class="spanBox">{{bunny.patient_details.CancerMonth.0|upper}}</span>
+                    <span class="spanBox">{{bunny.patient_details.CancerMonth.1|upper}}</span>
+                    <span class="spanBox" style="margin-left: 5px">{{bunny.patient_details.CancerYear.0|upper}}</span>
+                    <span class="spanBox">{{bunny.patient_details.CancerYear.1|upper}}</span>
+                </div>
+                <div style="margin-top: -16px;margin-left: 10px">
+                    <span class="spanBox"></span>
+                    <p class="customPTag" style="margin-right: 58px;margin-left: 0px">Alcohol or drug abuse</p>
+                    <span class="spanBox">{{bunny.patient_details.AlcoholOrDrugAbuseMonth.0|upper}}</span>
+                    <span class="spanBox">{{bunny.patient_details.AlcoholOrDrugAbuseMonth.1|upper}}</span>
+                    <span class="spanBox" style="margin-left: 5px">{{bunny.patient_details.AlcoholOrDrugAbuseYear.0|upper}}</span>
+                    <span class="spanBox">{{bunny.patient_details.AlcoholOrDrugAbuseYear.1|upper}}</span>
+                </div>
+                <div style="margin-top: -16px;margin-left: 10px">
+                    <span class="spanBox"></span>
+                    <p class="customPTag" style="margin-right: 5px;margin-left: 0px">Any HIV or STD/Related ailments</p>
+                    <span class="spanBox">{{bunny.patient_details.RelatedAlimentsMonth.0|upper}}</span>
+                    <span class="spanBox">{{bunny.patient_details.RelatedAlimentsMonth.1|upper}}</span>
+                    <span class="spanBox" style="margin-left: 5px">{{bunny.patient_details.RelatedAlimentsYear.0|upper}}</span>
+                    <span class="spanBox">{{bunny.patient_details.RelatedAlimentsYear.1|upper}}</span>
+                </div>
+                <div style="margin-top: -16px;margin-left: 10px">
+                    <p class="customPTag" style="margin-right: 5px;margin-left: 19px">Any HIV or STD/Related ailments</p>
+                    <span class="spanLine">{{bunny.patient_details.OtherAliments}}</span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                    <span class="spanLine"></span>
+                </div>
+                <div style="margin-top: -16px;margin-left: 10px">
+                    <p class="customPTag" style="margin-right: 5px;margin-left: 100px;margin-top: 90px"><b>(PLEASE READ VERY CAREFULLY)</b></p>
+                </div>
+            </div>
+            <div style="padding-top: 420px">
+                <p class="subHeading" style="color: black">DECLARATION</p>
+                <p class="customPTag" style="margin-right: 5px;margin-left: 0px;margin-top: -10px">We confirm having read understood and agreed to the Declarations on the reverse of this form</p>
+                <div style="margin-top: 5px">
+                    <p class="customPTag" style="margin-right: 5px;margin-left: 0px;margin-top: -10px">a) Name of the treating doctor</p>
+                    <span class="spanLine" style="width: 550px;">{{bunny.hospital_details.Treating_Doctor_Name|upper}}</span>
+                </div>
+                <div style="margin-top: -12px">
+                    <p class="customPTag" style="margin-right: 5px;margin-left: 0px">b) Qualification:</p>
+                    <span class="spanLine" style="width: 200px;">{{doctor_details.qualification|upper}}</span>
+
+                    <p class="customPTag" style="margin-right: 25px;margin-left: 0px">c) Registration No. with State Code: </p>
+                    <span class="spanBox">{{doctor_details.doctorRegistrationNo.0|upper}}</span>
+                    <span class="spanBox">{{doctor_details.doctorRegistrationNo.1|upper}}</span>
+                    <span class="spanBox">{{doctor_details.doctorRegistrationNo.2|upper}}</span>
+                    <span class="spanBox">{{doctor_details.doctorRegistrationNo.3|upper}}</span>
+                    <span class="spanBox">{{doctor_details.doctorRegistrationNo.4|upper}}</span>
+                    <span class="spanBox">{{doctor_details.doctorRegistrationNo.5|upper}}</span>
+                    <span class="spanBox">{{doctor_details.doctorRegistrationNo.6|upper}}</span>
+                    <span class="spanBox">{{doctor_details.doctorRegistrationNo.7|upper}}</span>
+                    <span class="spanBox">{{doctor_details.doctorRegistrationNo.8|upper}}</span>
+                    <span class="spanBox">{{doctor_details.doctorRegistrationNo.9|upper}}</span>
+                    <span class="spanBox">{{doctor_details.doctorRegistrationNo.10|upper}}</span>
+                    
+                </div>
+            </div>
+
+            <div style="margin-top: 5px">
+                <span class="spanBox2" style="width: 250px;height: 70px;margin-left: 20px"></span>
+                <span class="spanBox2" style="width: 250px;height: 70px;margin-left: 175px"></span>
+            </div>
+            <div style="margin-top: 0px">
+                <p class="customPTag" style="margin-right: 25px;margin-left: 40px">Hospital Seal (Must include Hospital ID)</p>
+                <p class="customPTag" style="margin-right: 25px;margin-left: 240px">Patient Insured Name & Signature</p>
+            </div>
+        </div>
+
+        {% comment %} <!-- -------------------------------End of Second Page------------------------ --> {% endcomment %}
+        <div class="form-container" style="margin-top: 10px">
+            <p class="subHeading" style="color: black;text-align: center;padding-top: 30px">PAGE 3: NOT TO BE FAXED/SCANNED</p>
+            <div style="margin-top: 0px">
+                <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: 0px">DECLARATION BY THE PATIENT / REPRESENTATIVE</p>
+                <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">A. I agree to allow the hospital to submit all original documents pertaining to hospitalization to the Bajaj Allianz General Insurance Company
+                    Limited after the discharge. I agree to sign on the Final Bill & the Discharge Summary, before my discharge.</p>
+                <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">B. Payment to hospital is governed by the terms and conditions of the policy. In case the Bajaj Allianz General Insurance Company Limited is not
+                    liable to settle the hospital bill, I undertake to settle the bill as per the terms and conditions of the policy.</p>
+                <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">C. All non-medical expenses and expenses not relevant to current hospitalization and the amounts over & above the limit authorized by
+                    the Bajaj Allianz General Insurance Company Limited not governed by the terms and conditions of the policy will be paid by me </p>
+                <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">D . I hereby declare to abide by the terms and conditions of the policy and if at any time the facts disclosed by me are found to be false or incorrect
+                    I forfeit my claim and agree to indemnify the Bajaj Allianz General Insurance Company Limited</p>
+                <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">E . I agree and understand that Bajaj Allianz General Insurance Company Limited is in no way warranting the service of the hospital & that
+                    the Bajaj Allianz General Insurance Company Limited is in no way guaranteeing that the services provided by the hospital will be of a particular
+                    quality or standard.</p>
+                <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">F . I hereby warrant the truth of the forgoing particulars in every respect and I agree that if I have made or shall make any false or untrue
+                    statement suppression or concealment with respect to the claim, my right to claim reimbursement of the said expenses shall be absolutely
+                    forfeited.</p>
+                <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">G . I agree to indemnify the hospital against all expenses incurred on my behalf, which are not reimbursed by the Bajaj Allianz General Insurance
+                    Company Limited
+                </p>
+                <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">I. I/We authorize Insurance Company/TPA to contact me/us through mobile/email for any update on this claim</p>
+            </div>
+            <div style="margin-top: 0px">
+                <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">a) Patient's /Insured's Name:</p>
+                <span class="spanLine" style="width: 500px;">{{bunny.patient_details.Name|upper}}</span>
+            </div>
+            <div style="margin-top: 0px">
+                <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">b) Contact number:</p>
+                <span class="spanLine" style="width: 200px;">{{bunny.patient_details.Phone|upper}}</span>
+                <p class="customPTag" style="margin-right: 25px;margin-left: 150px;margin-top: -8px">c) Patient's / Insured's Signature:</p>
+            </div>
+            <div style="margin-top: 0px">
+                <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">d) Email ID (optional)</p>
+                <span class="spanLine" style="width: 200px;">{{bunny.patient_details.Email|upper}}</span>
+
+                <span class="spanBox2" style="height:60px;width: 240px;margin-left: 110px;vertical-align: -50px"></span>
+            </div>
+            <div style="margin-top: -14px">
+                <p class="customPTag" style="margin-right: 5px;margin-left: 0px;margin-top: -8px">Date -</p>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+
+                <p class="customPTag" style="margin-right: 5px;margin-left: 0px;margin-top: -8px">Time -</p>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+            </div>
+            <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: 5px">HOSPITAL DECLARATION</p>
+
+            <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">1. We have no objection to any authorized Bajaj Allianz General Insurance Company Limited official verifying documents pertaining to
+                hospitalization.</p>
+            <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">2. All valid original documents duty countersigned by the insured I patient as per the checklist below will be sent to Bajaj Allianz General
+                Insurance Company Limited within 7 days of the patient's discharge.</p>
+            <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">3. WE AGREE THAT BAJAJ ALLIANZ GENERAL INSURANCE COMPANY LIMITED WILL NOT BE LIABLE TO MAKE THE PAYMENT IN THE EVENT OF ANY
+                DISCREPANCY BETWEEN THE FACTS IN THIS FORM AND DISCHARGE SUMMARY or other documents.</p>
+            <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">4. The patient declaration has been signed by the patient or by his representative in our presence.</p>
+            <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">5. We agree to provide clarifications for the queries raised regarding this hospitalization and we take the sole responsibility for any delay in
+                offering clarifications.</p>
+            <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">6. We will abide by the terms and conditions agreed in the MOU.</p>
+            <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">7. We confirm that no additional amount would be collected liom the insured in excess of Agreed Package Rates except costs towards nonadmissible amounts (including additional charges due to opting higher room rent than eligibility choosing separate line of treatment
+                which is not envisaged/considered in package).</p>
+            <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">8. We confirm that no recoveries would be made from the deposit amount collected from the insured except for costs towards nonadmissible amounts (including additional charges due to opting higher room rent than eligibility/choosing separate line of treatment
+                which is not envisaged/considered in package).</p>
+            <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -8px">9. In the event of unauthorized recovery of any additional amount from the Insured in excess of Agreed Package Rates, the authorized TPA /
+                Insurance Company reserves the right to recover the same from us (the Network Provider) and,/or take necessary action, as provided
+                under the MOU or applicable laws</p>
+            <div style="margin-top: 0px">
+                <p class="customPTag" style="margin-right: 25px;margin-left: 125px">Hospital Seal</p>
+                <p class="customPTag" style="margin-right: 25px;margin-left: 310px">Doctor's Signature</p>
+            </div>
+            <div style="margin-top: 5px">
+                <span class="spanBox2" style="width: 250px;height: 70px;margin-left: 20px"></span>
+                <span class="spanBox2" style="width: 250px;height: 70px;margin-left: 175px"></span>
+            </div>
+            <div style="margin-top: 10px">
+                <p class="customPTag" style="margin-right: 5px;margin-left: 450px;margin-top: -8px">Date -</p>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+
+                <p class="customPTag" style="margin-right: 5px;margin-left: 0px;margin-top: -8px">Time -</p>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+                <span class="spanLine"></span>
+            </div>
+
+        </div>
+        <div class="form-container" >
+            <p class="subHeading" style="color: black;padding-top: 30px">DOCUMENTS TO BE PROVIDED BY THE HOSPITAL IN SUPPORT OF THE CLAIM</p>
+            <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -2px">1. Detailed Discharge Summary and all Bills from the hospital</p>
+            <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -2px">2. Cash Memos from the Hospitals / Chemists supported by proper prescription</p>
+            <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -2px">3. Receipts and Pathological Test Reports from Pathologists, supported by note from the attending Medical Practitioner I Surgeon
+                recommending such pathological Tests.</p>
+            <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -2px">4. Surgeon's Certificate stating nature of operation performed and Surgeon's Bill and Receipt.</p>
+            <p class="customPTag" style="margin-right: 25px;margin-left: 0px;margin-top: -2px">5. Certificates from attending Medical Practitioner / Surgeon that the patient is fully cured</p>
+        </div>
+
+
+
+    </div>
+
+    <script>
+        window.onload = function() {
+            document.getElementById("download")
+                .addEventListener("click", () => {
+                    const invoice = this.document.getElementById("invoice");
+                    console.log(invoice);
+                    console.log(window);
+                    var opt = {
+                        margin: 0,
+                        filename: 'BAJAJ_ALLIANZ.pdf',
+                        image: {
+                            type: 'jpeg',
+                            quality: 0.98
+                        },
+                        html2canvas: {
+                            scale: 4
+                        },
+                        jsPDF: {
+                            unit: 'in',
+                            format: 'letter',
+                            orientation: 'portrait'
+                        }
+                    };
+                    html2pdf().from(invoice).set(opt).save();
+                })
+        }
+
+    </script>
+</body>
+
+</html>

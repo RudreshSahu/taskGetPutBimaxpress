@@ -1,0 +1,1464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.0/html2pdf.bundle.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+    <title>Vidal</title>
+
+    <style>
+        body {
+            background-color: #00000080;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+
+        .imgdiv {}
+
+        .bgimg {}
+
+        .container {
+            /* height: 1040px; */
+            /* background-color: white;
+            margin: 0px 200px;
+            padding-left: 60px;
+            padding-right: 25px;
+            max-width: 720px;
+            margin: auto;
+            padding-top: 34px;
+            padding-bottom: 24px; */
+
+
+            position: relative;
+			overflow: hidden;
+            background-color: white;
+            margin: 0px 200px;
+            padding-left: 60px;
+            padding-right: 25px;
+            height: 1023px;
+            max-width: 720px;
+            margin: auto;
+            padding-top: 34px;
+            padding-bottom: 24px;
+			margin: 0px 0px 0px 0px;
+			padding: 0px;
+			border: none;
+			width: 794px;
+			margin: auto;
+		            
+
+
+        }
+
+        .border {
+
+            /* background-color: white;
+            border: 2px solid black; */
+            margin: 8px;
+        }
+
+        .logo {
+            padding-top: 18px;
+        }
+
+        .logoimg {
+            position:absolute;
+            left: 443px;
+            top: 63px;
+            width: 74px;
+        }
+
+        .content {
+            /* background-color: rgb(230, 184, 184); */
+            background-color: white;
+            opacity: 1;
+            /* z-index: 4; */
+            /* padding: 36px; */
+            /* padding: 0 36px 36px 36px; */
+        }
+
+        .heading {
+            /* font-size: 20px; */
+            font-weight: bold;
+            text-decoration: underline;
+            margin-top: 5px;
+            text-align: center;
+        }
+
+        .note {
+            margin-left: 350px;
+            margin-top: 5px;
+            text-align: end;
+            font-weight: normal;
+        }
+
+        .list {
+            margin: 11px 11px 18px 11px;
+            /* display: list-item;  */
+
+        }
+        .list2 {
+            margin: 11px 11px -3px 11px;
+
+        }
+
+        .sublist2 {
+            margin: 9px 8px 4px 8px;
+          
+        }
+        .sublist {
+            margin: 9px 8px 14px 8px; 
+        
+        }
+
+        .note2 {
+            text-align: end;
+            font-weight: normal;
+
+        }
+
+        .spanBox {
+            font-size: 8px;
+            text-align: center;
+            display: inline-block;
+            border: 2px solid #444;
+            vertical-align: middle;
+            line-height: 13px;
+            width: 38px;
+            height: 19px;
+            /* margin-top: -19px; */
+            /* margin-left: -1px; */
+            /* margin-top: 2px; */
+            margin-top: -4px;
+
+            border-radius: 6px;
+        }
+
+        .spanBoxBig {
+            text-align: center;
+            display: inline-block;
+            border: 2px solid #444;
+            vertical-align: middle;
+            line-height: 13px;
+            width: 240px;
+            height: 65px;
+            margin-top: -19px;
+            margin-left: 0px;
+            margin-top: 2px;
+        }
+
+        .spanLine {
+            font-size: 10.5px;
+
+            display: inline-block;
+            border-bottom: 1px solid black;
+            vertical-align: middle;
+            line-height: 2px;
+            width: 10px;
+            height: 9px;
+            margin-top: 4px;
+            margin-left: -4.35px;
+        }
+
+        .dot {
+            letter-spacing: 1px;
+            font-size: 13px;
+        }
+
+        .my-5 {
+            margin: 5px;
+        }
+
+        .my-42 {
+            margin-left: 42px;
+        }
+
+        .my-10 {
+            margin-left: 10px;
+
+        }
+
+        .my-140 {
+            margin-left: 140px;
+        }
+
+        .hrline {
+            width: 555px;
+            height: 55px;
+            background-color: #444;
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="imgdiv">
+    <img class="bgimg" src="bg.png" alt="">
+  </div> -->
+  {% comment %} <button id="download" onclick="plzDown()"> Download Form</button> {% endcomment %}
+   <button id="download"> Download Form</button>
+  <div  id="invoice" >
+<!-- page 1 -->
+    <div class="container">
+        <div class="border">
+            <div class="logo">
+                <!-- <img class="logoimg" src="./static/img/insuranceCompanyLogo/safe.jpeg" alt=""> -->
+            </div>
+            <div class="content">
+                <div class="heading">
+                    REQUEST FOR CASHLESS HOSPITALISATION FOR HEALTH INSURANCE
+                </div>
+                <div class="heading" style="text-align: center">
+                    POLICY PART — C (Revised)
+                </div>
+
+                <div class="note">(TO BE FILLED IN BLOCK LETTERS)</div>
+                <div class="heading">
+                    DETAILS OF THE THIRD PARTY ADMINISTRATOR/ INSURER/ HOSPITAL:
+
+                </div>
+
+                <ol type="a">
+                    <div style="margin-top:20px"></div>
+                    <li class="list">Name of TPA/Insurance company:
+                        <div style="position:absolute; margin: -13px 0 0px 200px; ">
+                            <span class="data"> {{bunny.patient_details.Insurance_Company|upper}}</span>
+                          </div>
+                        <span style="margin-left: 10px;"></span>
+                        <span class="spanLine" style="width:409px ;"> </span>
+
+
+                    </li>
+                    <li class="list">Toll Free Phone number :
+                        <div style="position:absolute; margin: -13px 0 0px 153px; ">
+                            <span class="data">{{hospitaldata.phone}}</span>
+                          </div>
+                          <span style="margin-left: 10px;"></span>
+                        <span class="spanLine" style="width:455px ;"> </span>
+                    </li>
+                    <li class="list">Toll Free Fax :
+                        <div style="position:absolute; margin: -13px 0 0px 153px; ">
+                            <span class="data"></span>
+                          </div>
+                        <span style="margin-left: 69px;"></span>
+                        <span class="spanLine" style="width:455px ;"> </span>
+                      
+                    </li>
+                    <li class="list">
+                        Name of Hospital:
+                        <div style="position:absolute; margin: -13px 0 0px 153px; ">
+                            <span class="data"> {{hospitaldata.name|upper}}</span>
+                          </div>
+                        <span style="margin-left: 50px;"></span>
+                        <span class="spanLine" style="width:455px ;"> </span>
+                        <ol type="i">
+                            <li class="sublist">
+                                Address
+                                <div style="position:absolute; margin: -13px 0 0px 105px; ">
+                                    <span class="data"> {{hospitaldata.address|upper}}</span>
+                                  </div>
+                                <span style="margin-left: 55px;"></span>
+                                <span class="spanLine" style="width:455px ;"> </span>
+                            </li>
+                            <li class="sublist">
+                                Rohini ID
+                                <div style="position:absolute; margin: -13px 0 0px 105px; ">
+                                    <span class="data"> {{hospitaldata.rohini|upper}}</span>
+                                  </div>
+                                <span style="margin-left: 47px;"></span>
+                                <span class="spanLine" style="width:455px ;"> </span>
+                            </li>
+                            <li class="sublist">
+                                E-mail ID
+                                <div style="position:absolute; margin: -13px 0 0px 105px; ">
+                                    <span class="data"> {{hospitaldata.email|upper}}</span>
+                                  </div>
+                                <span style="margin-left: 47px;"></span>
+                                <span class="spanLine" style="width:455px ;"> </span>
+                            </li>
+                        </ol>
+                    </li>
+                </ol>
+
+                <div class="heading">TO BE FILLED BY INSURED/PATIENT</div>
+
+                <ol type="A">
+                    <li class="list">Name of the Patient:
+                        <div style="position:absolute; margin: -13px 0 0px 153px; ">
+                            <span class="data"> {{bunny.patient_details.Name|upper}}</span>
+                          </div>
+                        <span style="margin-left: 37px;"></span>
+                        <span class="spanLine" style="width:455px ;"> </span>
+                    </li>
+                    <li class="list">Gender:
+                        {% if bunny.patient_details.Gender == 'male' %}
+                        <span class="my-42"></span>
+                        <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>
+                       
+                        <span class="sublist">Male</span>
+                        <span class="my-42"></span>
+                        <span class="spanBox"></span>
+                        <span class="sublist">Female</span>
+                        <span class="my-42"></span>
+                        <span class="spanBox"></span>
+                        <span class="sublist">Third Gender</span>
+                        {% elif bunny.patient_details.Gender == 'female' %}
+                        <span class="my-42"></span>
+                        <span class="spanBox"></span>
+                        <span class="sublist">Male</span>
+                        <span class="my-42"></span>
+                        <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>
+                        <span class="sublist">Female</span>
+                        <span class="my-42"></span>
+                        <span class="spanBox"></span>
+                        <span class="sublist">Third Gender</span>
+                        {% else %}
+                        <span class="my-42"></span>
+                        <span class="spanBox"></span>
+                        <span class="sublist">Male</span>
+                        <span class="my-42"></span>
+                        <span class="spanBox"></span>
+                        <span class="sublist">Female</span>
+                        <span class="my-42"></span>
+                        <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>
+                        <!-- height: 11px;    width: 20px;  padding-top: 3px; -->
+                        <span class="sublist">Third Gender</span>
+                        {% endif %}
+
+                    </li>
+
+                    <li class="list">Age:
+                        <span style="margin-left: 182px;"></span>
+                        <div style="position:absolute; margin: -13px 0 0px 106px; ">
+                            <span class="data">{{bunny.patient_details.AgeYear|upper}}/{{bunny.patient_details.AgeMonth|upper}}</span>
+                          </div>
+                        <span class="sublist">(Years) / (Month) </span>
+
+                    </li>
+
+                    <li class="list">Date of Birth:
+                        <div style="position:absolute; margin: -13px 0 0px 106px; ">
+                            <span class="data"> {{bunny.patient_details.DOB.8|upper}}</span>
+                            <span class="data"> {{bunny.patient_details.DOB.9|upper}}</span>
+                            <span class="data"> {{bunny.patient_details.DOB.7|upper}}</span>
+                            <span class="data"> {{bunny.patient_details.DOB.5|upper}}</span>
+                            <span class="data"> {{bunny.patient_details.DOB.6|upper}}</span>
+                            <span class="data"> {{bunny.patient_details.DOB.4|upper}}</span>
+                            <span class="data"> {{bunny.patient_details.DOB.0|upper}}</span>
+                            <span class="data"> {{bunny.patient_details.DOB.1|upper}}</span>
+                            <span class="data"> {{bunny.patient_details.DOB.2|upper}}</span>
+                            <span class="data"> {{bunny.patient_details.DOB.3|upper}}</span>
+                          </div>
+                        <span style="margin-left: 135px;"></span>
+                        <span class="sublist">(DD/MM/YYYY) </span>
+
+                    </li>
+                    <li class="list">Contact number:
+                        <div style="position:absolute; margin: -13px 0 0px 237px; ">
+                            <span class="data"> {{bunny.patient_details.Phone|upper}}</span>
+                          </div>
+                        <span style="margin-left: 134px;"></span>
+                        <span class="spanLine" style="width: 380px;  "> </span>
+                    </li>
+
+                    <li class="list">Contact number of attending Relative
+                        <div style="position:absolute; margin: -13px 0 0px 237px; ">
+                            <span class="data"> {{bunny.patient_details.Attending_Relative_Number|upper}}</span>
+                          </div>
+                        <span style="margin-left: 28px;"></span>
+                        <span class="spanLine" style="width: 380px;  "> </span>
+                    </li>
+
+                    <li class="list">Insured Card ID number:
+                        <div style="position:absolute; margin: -13px 0 0px 237px; ">
+                            <span class="data"> {{bunny.patient_details.Health_Id|upper}}</span>
+                          </div>
+                        <span style="margin-left: 89px;"></span>
+                        <span class="spanLine" style="width: 380px;  "> </span>
+                    </li>
+
+                    <li class="list">Policy number/Name of Corporate:
+                        <div style="position:absolute; margin: -13px 0 0px 237px; ">
+                            <span class="data"> {{bunny.patient_details.Policy_Id|upper}}</span>
+                          </div>
+                        <span style="margin-left: 41px;"></span>
+                        <span class="spanLine" style="width: 380px;  "> </span>
+                    </li>
+
+                    <li class="list">Employee ID:
+                        <div style="position:absolute; margin: -13px 0 0px 237px; ">
+                            <span class="data"> {{bunny.patient_details.EmployeeId|upper}}</span>
+                          </div>
+                        <span style="margin-left: 152px;"></span>
+                        <span class="spanLine" style="width: 380px;  "> </span>
+                    </li>
+
+                    <li class="list">Currently do you have any other mediclaim /health insurance:
+                        {% if bunny.patient_details.patient_details_HealthInsurance == 'Yes' %}
+
+                        <span class="my-10"></span>
+                        <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>
+                        <span class="sublist">Yes</span>
+                        <span class="my-42"></span>
+
+                        <span class="spanBox"></span>
+                        <span class="sublist">No</span>
+                        {% else %}
+                        <span class="my-10"></span>
+                        <span class="spanBox"></span>
+                        <span class="sublist">Yes</span>
+                        <span class="my-42"></span>
+
+                        <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>
+                        <span class="sublist">No</span>
+                        {% endif %}
+
+
+                        <ol type="i">
+                            <li class="sublist">
+                                Company Name :
+                                <div style="position:absolute; margin: -13px 0 0px 190px; ">
+                                    <span class="data"> {{bunny.patient_details.HealthInsuranceYesCompanyName|upper}}</span>
+                                  </div>
+                                <span style="margin-left: 84px;"></span>
+                                <span class="spanLine" style="width: 380px;  "> </span>
+                            </li>
+                            <li class="sublist">
+                                Give Details
+                                <div style="position:absolute; margin: -13px 0 0px 190px; ">
+                                    <span class="data">{{bunny.patient_details.Give_Company_details|upper}}</span>
+                                  </div>
+                                <span style="margin-left: 105px;"></span>
+                                <span class="spanLine" style="width: 380px;  "> </span>
+                            </li>
+
+                        </ol>
+
+                    </li>
+                    <li class="list">Do you have a family Physician:
+                        {% if bunny.patient_details.Physician == 'Yes'%}
+                        <span style="margin-left: 166px;"></span>
+                        <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>
+                        <span class="my-5"></span>
+                        <span class="sublist">Yes</span>
+                        <span class="my-42"></span>
+                        <span class="spanBox"></span>
+                        <span class="my-5"></span>
+                        <span class="sublist">No</span>
+                        {% else %}
+                        <span style="margin-left: 166px;"></span>
+                        <span class="spanBox"></span>
+                        <span class="my-5"></span>
+                        <span class="sublist">Yes</span>
+                        <span class="my-42"></span>
+                        <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>
+                        <span class="my-5"></span>
+                        <span class="sublist">No</span>
+                        {% endif %}
+
+
+
+                    </li>
+                    <li class="list">Name of the Family Physician:
+                        <div style="position:absolute; margin: -13px 0 0px 237px; ">
+                            <span class="data">  {{bunny.patient_details.PhysicianYesPhysicianName|upper}}</span>
+                          </div>
+                        <span style="margin-left: 66px;"></span>
+                        <span class="spanLine" style="width: 380px;"> </span>
+                    </li>
+                    <li class="list"> Contact number, if any:
+                        <div style="position:absolute; margin: -13px 0 0px 237px; ">
+                            <span class="data">{{bunny.patient_details.PhysicianYesPhysicianContactNum|upper}}</span>
+                          </div>
+                        <span style="margin-left: 98px;"></span>
+                        <span class="spanLine" style="width: 380px;"> </span>
+
+                    </li>
+                    <li class="list">Current Address of Insured Patient
+                        <div style="position:absolute; margin: -13px 0 0px 237px; ">
+                            <span class="data"> {{bunny.patient_details.Address|upper}}</span>
+                          </div>
+                        <span style="margin-left: 40px;"></span>
+                        <span class="spanLine" style="width: 380px;"> </span>
+                    </li>
+                    <li class="list">Occupation of Insured Patient:
+                        <div style="position:absolute; margin: -13px 0 0px 237px; ">
+                            <span class="data">{{bunny.patient_details.Occupation|upper}}</span>
+                          </div>
+                        <span style="margin-left: 62px;"></span>
+                        <span class="spanLine" style="width: 380px;"> </span>
+                    </li>
+
+                </ol>
+
+                <div class="note2" style=" padding-left: 56px;">(PLEASE COMPLETE DECLARATION OF THIS FORM)</div>
+
+            </div>
+        </div>
+        <!-- <hr> -->
+        <div style="margin: 51px 0px 0px 70px;"> 1 | <span class="note2"> p a g e</span></div>
+    </div>
+
+    <div style="width: 100%;     height: 22px;  "></div>
+
+    <!-- page 2 -->
+    <div class="container">
+        <div class="border">
+
+            <div class="content">
+                <div class="heading">
+
+                </div>
+
+                <span class="my-5"></span>
+                <div class="heading">
+                    TO BE FILLED BY TREATING DOCTOR / HOSPITAL
+                </div>
+
+                <ol type="A">
+                    <li class="list">Name of the treating doctor:
+                        <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                            <span class="data"> {{bunny.hospital_details.Treating_Doctor_Name|upper}}</span>
+                          </div>
+                        <span class="spanLine" style="width: 325px; margin-left: 136px;"> </span>
+                    </li>
+                    <li class="list">Contact number:
+                        <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                            <span class="data">{{bunny.hospital_details.Contact_number|upper}}</span>
+                          </div>
+                        <span class="spanLine" style="width: 325px; margin-left: 193px;"> </span>
+                    </li>
+                    <li class="list">Nature of illness/Disease with presenting complaint:
+                        <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                            <span class="data">  {{bunny.patient_details.Nature_Of_Illness|upper}}</span>
+                          </div>
+                        <span class="spanLine" style="width: 325px; margin-left: 17px;"> </span>
+                    </li>
+                    <li class="list"> Relevant Critical Findings:
+                        <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                            <span class="data"> {{bunny.patient_details.Relevant_Critical_Findings|upper}}</span>
+                          </div>
+                        <span class="spanLine" style="width: 325px; margin-left: 143px;"> </span>
+
+                    </li>
+
+                    <li class="list">
+                        Duration of the present ailment:
+                        <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                            <span class="data"> {{bunny.patient_details.Duration_Of_Present_Ailments|upper}}</span>
+                          </div>
+                        <span class="spanLine" style="width: 297px; margin-left: 117px;"> </span>
+                        <!-- <span style="margin-left: 47px;"></span> -->
+                        Days
+
+                        <ol type="i">
+                            <li class="sublist">
+                                Date of First consultation:
+                                <div style="position:absolute; margin: -13px 0 0px 263px; ">
+                                    <span class="data"> {{bunny.patient_details.Date_Of_First_Consultation.8|upper}}</span>
+                            <span class="data"> {{bunny.patient_details.Date_Of_First_Consultation.9|upper}}</span>
+                            <span class="data"> {{bunny.patient_details.Date_Of_First_Consultation.7|upper}}</span>
+                            <span class="data"> {{bunny.patient_details.Date_Of_First_Consultation.5|upper}}</span>
+                            <span class="data"> {{bunny.patient_details.Date_Of_First_Consultation.6|upper}}</span>
+                            <span class="data"> {{bunny.patient_details.Date_Of_First_Consultation.4|upper}}</span>
+                            <span class="data"> {{bunny.patient_details.Date_Of_First_Consultation.0|upper}}</span>
+                            <span class="data"> {{bunny.patient_details.Date_Of_First_Consultation.1|upper}}</span>
+                            <span class="data"> {{bunny.patient_details.Date_Of_First_Consultation.2|upper}}</span>
+                            <span class="data"> {{bunny.patient_details.Date_Of_First_Consultation.3|upper}}</span>
+                                  </div>
+                                <span class="spanLine" style="width: 325px; margin-left: 100px;"> </span>
+                            </li>
+                            <li class="sublist">
+                                Past history of present ailment, if any:
+                                <div style="position:absolute; margin: -13px 0 0px 263px; ">
+                                    <span class="data"> {{bunny.patient_details.Past_History_Of_Present_Ailments|upper}}</span>
+                                  </div>
+                                <span class="spanLine" style="width: 325px; margin-left: 38px;"> </span>
+                            </li>
+
+                        </ol>
+                    </li>
+
+                    <li class="list">
+                        Provisional diagnosis:
+                        <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                            <span class="data"> {{bunny.patient_details.Provision_Diagnosis|upper}}</span>
+                          </div>
+                        <span class="spanLine" style="width: 325px; margin-left: 171px;"> </span>
+                        <ol type="i">
+                            <li class="sublist">
+                                ICD 10 code:
+                                <div style="position:absolute; margin: -13px 0 0px 263px; ">
+                                    <span class="data"> {{bunny.patient_details.ICD_Code|upper}}</span>
+                                  </div>
+                                <span class="spanLine" style="width: 325px; margin-left: 168px;"> </span>
+                            </li>
+                        </ol>
+                    </li>
+
+                    <li class="list">
+                        Proposed line of treatment:
+
+                        <ol type="i">
+                            <li class="sublist">
+                                Medical Management
+                                {% if bunny.patient_details.doctor_proposedLineOfTreatment_Medical_Managment == "Yes" %}
+                                <span class="brack" style="  margin-left: 130px;">( <img height="9px" src="/static/dist/tick.png" width="9px"> )</span>
+                                {% else %}
+                                <span class="brack" style="  margin-left: 130px;">( &emsp; )</span>
+                                {% endif %}
+                            </li>
+                            <li class="sublist">
+                                Surgical Management
+                                {% if bunny.patient_details.doctor_proposedLineOfTreatment_Surgical_Managment == 'Yes'%}
+                                <span class="brack" style="  margin-left: 129px;">( <img height="9px" src="/static/dist/tick.png" width="9px"> )</span>
+                                {% else %}
+                                <span class="brack" style="  margin-left: 129px;">( &emsp; )</span>
+                                {% endif %}
+                            </li>
+
+                            <li class="sublist">
+                                Intensive care
+                                {% if bunny.patient_details.doctor_proposedLineOfTreatment_Intensive_Care == 'Yes' %}
+                                <span class="brack" style="  margin-left: 170px;">( <img height="9px" src="/static/dist/tick.png" width="9px"> )</span>
+                                {% else %}
+                                <span class="brack" style="  margin-left: 170px;">( &emsp; )</span>
+                                {% endif %}
+                            </li>
+
+                            <li class="sublist">
+                                Investigation
+                                {% if bunny.patient_details.doctor_proposedLineOfTreatment_Investigation == 'Yes'%}
+                                <span class="brack" style="  margin-left: 176px;">( <img height="9px" src="/static/dist/tick.png" width="9px"> )</span>
+                                {% else %}
+                                <span class="brack" style="  margin-left: 176px;">( &emsp; )</span>
+                                {% endif %}
+                            </li>
+                            <li class="sublist">
+                                Non-allopathic treatment
+                                {% if bunny.patient_details.doctor_proposedLineOfTreatment_Allopathic_Treatment == 'Yes'%}
+                                <span class="brack" style="  margin-left: 113px;">( <img height="9px" src="/static/dist/tick.png" width="9px"> )</span>
+                                {% else %}
+                                <span class="brack" style="  margin-left: 113px;">( &emsp; )</span>
+                                {% endif %}
+                            </li>
+                        </ol>
+                    </li>
+
+                    <li class="list">
+                        If investigation and/or Medical Management, provide details
+                        <div style="position:absolute; margin: -13px 0 0px 335px; ">
+                            <span class="data"> {{bunny.patient_details.If_Investigation_Or_Medical_Management_Provide_Details}}</span>
+                          </div>
+                        <span class="spanLine" style="width: 290px; margin-left: 10px;"> </span>
+                        <ol type="i">
+                            <li class="sublist">
+                                Route of Drug Administration
+                                <div style="position:absolute; margin: -13px 0 0px 263px; ">
+                                    <span class="data"> {{bunny.patient_details.Route_Of_Drug_Administration}}</span>
+                                  </div>
+                                <span class="spanLine" style="width: 325px; margin-left: 83px;"> </span>
+                            </li>
+                        </ol>
+                    </li>
+                    <li class="list">
+                        lf surgical, name of surgery:
+                        <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                            <span class="data">  {{bunny.patient_details.If_Surgical_Name_of_Surgery}}</span>
+                          </div>
+                        <span class="spanLine" style="width: 325px;  margin-left: 141px;"> </span>
+                        <ol type="i">
+                            <li class="sublist">
+                                ICD 10 PCS code
+                                <div style="position:absolute; margin: -13px 0 0px 263px; ">
+                                    <span class="data"> {{bunny.patient_details.ICD_Code_10_PCS}}</span>
+                                  </div>
+                                <span class="spanLine" style="width: 325px;  margin-left: 148px;"> </span>
+                            </li>
+                        </ol>
+                    </li>
+
+                    <li class="list">If other treatment, provide details:
+                        <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                            <span class="data">  {{bunny.patient_details.If_Other_Treatment_Provide_Details}} </span>
+                          </div>
+                        <span class="spanLine" style="width: 325px;  margin-left: 109px;"> </span>
+                    </li>
+                    <li class="list">How did injury occur
+                        <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                            <span class="data">  {{bunny.patient_details.How_Did_Injury_Occur}}</span>
+                          </div>
+                        <span class="spanLine" style="width: 325px;  margin-left: 176px;"> </span>
+                    </li>
+
+                    <li class="list">
+                        In case of accident
+                        <ol type="i">
+                            <li class="sublist">
+                                Is it RTA
+                                {% if bunny.patient_details.In_Case_Of_Accident == 'Yes' %}
+                                <span style="  margin-left: 325px;">
+                                    <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>
+                                    <span class="sublist">Yes</span>
+                                    <span class="my-10"></span>
+                                    <span class="my-10"></span>
+                                    <span class="spanBox"></span>
+                                    <span class="sublist">No</span>
+                                </span>
+                                    {% else %}
+                                    <span style="  margin-left: 325px;">
+                                    <span class="spanBox"></span>
+                                    <span class="sublist">Yes</span>
+                                    <span class="my-10"></span>
+                                    <span class="my-10"></span>
+                                    <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>
+                                    <span class="sublist">No</span>
+                                </span>
+                                    {% endif %}
+                            </li>
+                            <li class="sublist">
+                                Date of injury
+                                <div style="position:absolute; margin: -13px 0 0px 145px; ">
+                                   <span class="data"> {{bunny.hospital_details.DateofInjury.8|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.DateofInjury.9|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.DateofInjury.7|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.DateofInjury.5|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.DateofInjury.6|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.DateofInjury.4|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.DateofInjury.0|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.DateofInjury.1|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.DateofInjury.2|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.DateofInjury.3|upper}}</span>
+                                  </div>
+                                <span style="  margin-left: 166px;">
+                                    (DD/MM/YYYY)
+                                </span>
+                            </li>
+
+                            <li class="sublist">
+                                Report to Police
+                                {% if bunny.patient_details.Reported_To_Police == "Yes" %}
+                                <span style=" margin-left: 289px;">
+                                    <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>
+                                    <span class="sublist">Yes</span>
+                                    <span class="my-10"></span>
+                                    <span class="my-10"></span>
+                                    <span class="spanBox"></span>
+                                    <span class="sublist">No</span>
+                                </span>
+                                {% else %}
+                                <span style=" margin-left: 289px;">
+                                    <span class="spanBox"></span>
+                                    <span class="sublist">Yes</span>
+                                    <span class="my-10"></span>
+                                    <span class="my-10"></span>
+                                    <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>
+                                    <span class="sublist">No</span>
+                                </span>
+                                {% endif %}
+                            </li>
+
+                            <li class="sublist">
+                                FIR No.:
+                                <div style="position:absolute; margin: -13px 0 0px 262px; ">
+                                    <span class="data">{{bunny.patient_details.FIR_Number|upper}}</span>
+                                  </div>
+                                <span class="spanLine" style="width: 150px;  margin-left: 193px;"> </span>
+                                <!-- MLC No
+                                <span class="dot"> .............................. </span> -->
+                            </li>
+
+                            <li class="sublist">
+                                Injury /Disease caused due to substance abuse/alcohol consumption
+                                {% if bunny.patient_details.Injury_Disease_Caused_Due_To_Substance_Abuse_Alcohol_Consumption_ == 'Yes' %}
+                                <span style="  margin-left: 31px;">
+                                    <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>
+                                    <span class="sublist">Yes</span>
+                                    <span class="my-10"></span>
+                                    <span class="my-10"></span>
+                                    <span class="spanBox"></span>
+                                    <span class="sublist">No</span>
+                                </span>
+                                {% else %}
+                                <span style="  margin-left: 31px;">
+                                    <span class="spanBox"></span>
+                                    <span class="sublist">Yes</span>
+                                    <span class="my-10"></span>
+                                    <span class="my-10"></span>
+                                    <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>
+                                    <span class="sublist">No</span>
+                                </span>
+                                {% endif %}
+                            </li>
+
+                            <li class="sublist">
+                                Test conducted to establish this (if yes, attach report)
+                                {% if bunny.patient_details.doctor_testAlcohol == "Yes" %}
+                                <span style="  margin-left: 106px;">
+                                    <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>
+                                    <span class="sublist">Yes</span>
+                                    <span class="my-10"></span>
+                                    <span class="my-10"></span>
+                                    <span class="spanBox"></span>
+                                    <span class="sublist">No</span>
+                                </span>
+                                {% else %}
+                                <span style="  margin-left: 106px;">
+                                    <span class="spanBox"></span>
+                                    <span class="sublist">Yes</span>
+                                    <span class="my-10"></span>
+                                    <span class="my-10"></span>
+                                    <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>
+                                    <span class="sublist">No</span>
+                                </span>
+                                {% endif %}
+                            </li>
+
+                        </ol>
+                    </li>
+
+                    <li class="list">In case of Maternity
+
+                        <span class="my-42"></span>
+                        <span class="my-42"></span>
+                        <span class="my-10"></span>
+                        {% if bunny.patient_details.G == 'Yes' %}
+                        <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>                       
+                        <span class="sublist">G</span>
+                        {% else %}
+                        <span class="spanBox"></span>                       
+                        <span class="sublist">G</span>
+                        {% endif %}
+
+                        <span class="my-10"></span>
+                        <span class="my-10"></span>
+
+                        {% if bunny.patient_details.P == 'Yes' %}
+                        <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>                       
+                        <span class="sublist">P</span>
+                        {% else %}
+                        <span class="spanBox"></span>                       
+                        <span class="sublist">P</span>
+                        {% endif %}
+
+                        <span class="my-10"></span>
+                        <span class="my-10"></span>
+
+                        {% if bunny.patient_details.L == 'Yes' %}
+                        <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>                       
+                        <span class="sublist">L</span>
+                        {% else %}
+                        <span class="spanBox"></span>                       
+                        <span class="sublist">L</span>
+                        {% endif %}
+
+                        <span class="my-10"></span>
+                        <span class="my-10"></span>
+
+                        {% if bunny.patient_details.A == 'Yes' %}
+                        <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>                       
+                        <span class="sublist">A</span>
+                        {% else %}
+                        <span class="spanBox"></span>                       
+                        <span class="sublist">A</span>
+                        {% endif %}
+
+                        <ol type="i">
+
+                            <li class="sublist">
+                               Expected date of delivery
+                                <div style="position:absolute; margin: -13px 0 0px 145px; ">
+                               <span class="data"> {{bunny.hospital_details.ExpectedDateOfDelivery.8|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.ExpectedDateOfDelivery.9|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.ExpectedDateOfDelivery.7|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.ExpectedDateOfDelivery.5|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.ExpectedDateOfDelivery.6|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.ExpectedDateOfDelivery.4|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.ExpectedDateOfDelivery.0|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.ExpectedDateOfDelivery.1|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.ExpectedDateOfDelivery.2|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.ExpectedDateOfDelivery.3|upper}}</span>
+                                  </div>
+                                <span style="  margin-left: 166px;">
+                                    (DD/MM/YYYY)
+                                </span>
+                            </li>
+                        </ol>
+                    </li>
+
+
+                </ol>
+
+            </div>
+        </div>
+        <div style="margin: 51px 0px 0px 70px;"> 2 | <span class="note2"> p a g e</span></div>
+
+    </div>
+
+
+    <div style="width: 100%;     height: 22px;  "></div>
+
+    <!-- page 3 -->
+
+    <div class="container">
+        <div class="border">
+
+            <div class="content">
+                <div class="heading">
+
+                </div>
+
+                <div class="note">
+                    <span class="my-5"></span>
+                </div>
+                <span class="my-5"></span>
+                <div class="heading">
+                    DETAILS OF PATIENT ADMITTED
+                </div>
+
+                <ol type="A">
+                    <li class="list2"> Date of admission:
+                        <div style="position:absolute; margin: -13px 0 0px 145px; ">
+                            <span class="data"> {{bunny.hospital_details.Date_of_Admission|upper}} </span>
+                          </div>
+                        <span style="  margin-left: 224px;">
+                            (DD/MM/YYYY)
+                        </span>
+                    </li>
+
+                    <li class="list2"> Time of admission:
+                        <div style="position:absolute; margin: -13px 0 0px 145px; ">
+                       
+                             {% if bunny.hospital_details.admission_time.1 == ':' %}
+                            <span class="data"> 0</span>
+                            <span class="data"> {{bunny.hospital_details.admission_time.0|upper}}</span>
+                                <span class="data"> :</span>
+                            <span class="data"> {{bunny.hospital_details.admission_time.2|upper}}</span>
+
+                            <span class="data"> {{bunny.hospital_details.admission_time.3|upper}}</span>
+
+                                {% else %}
+                            <span class="data"> {{bunny.hospital_details.admission_time.0|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.admission_time.1|upper}}</span>
+                            <span class="data"> :</span>
+
+                            <span class="data"> {{bunny.hospital_details.admission_time.3|upper}}</span>
+                            <span class="data"> {{bunny.hospital_details.admission_time.4|upper}}</span>
+                              {% endif %}
+                          </div>
+                        <span style="  margin-left:218px;">
+                            ( HH : MM )
+                        </span>
+                    </li>
+
+                    <li class="list2">Is this an emergency/planned hospitalization event:
+
+                        {% if bunny.patient_details.isThisAEmergencyPlannedHospitalization == "Emergency" %}
+                        <span style="  margin-left: 55px;">
+                            <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>
+                            <span class="sublist">Emergency</span>
+                            <span class="my-10"></span>
+                            <span class="my-10"></span>
+                            <span class="spanBox"></span>
+                            <span class="sublist">Planned</span>
+                        </span>
+                        {% else %}
+                        <span style="  margin-left: 55px;">
+                            <span class="spanBox"></span>
+                            <span class="sublist">Emergency</span>
+                            <span class="my-10"></span>
+                            <span class="my-10"></span>
+                            <span class="spanBox"><img src="/static/dist/tick.png" style = "width:20px; height: 13px ;   padding-top: 2px;"></span>
+                            <span class="sublist">Planned</span>
+                        </span>
+                        {% endif %}
+                    </li>
+
+                    <li class="list2">
+                        Mandatory Past History of any chronic illness
+                        <span style="  margin-left: 75px;">
+                            <span class="sublist">If Yes ( Since Month /Year )</span></span>
+
+
+                        <ol type="i">
+                            <li class="sublist2">
+                                Diabetes
+                                <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                                    <span class="data">  {{bunny.patient_details.MandatoryPastHistoryMonth|upper}}/{{bunny.patient_details.MandatoryPastHistoryYear|upper}} </span>
+                                  </div>
+                                <span class="spanLine" style="width: 280px;  margin-left:230px;"> </span>
+
+                            </li>
+
+                            <li class="sublist2">
+                                Heart disease
+                                <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                                    <span class="data">{{bunny.patient_details.HeartDiseaseMonth|upper}}/{{bunny.patient_details.HeartDiseaseYear|upper}}  </span>
+                                  </div>
+                                <span class="spanLine" style="width: 280px;  margin-left: 206px;"> </span>
+
+                            </li>
+                            <li class="sublist2">
+                                Hypertension
+                                <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                                    <span class="data">{{bunny.patient_details.HypertensionMonth|upper}}/{{bunny.patient_details.HypertensionYear|upper}}  </span>
+                                  </div>
+                                <span class="spanLine" style="width: 280px;  margin-left: 207px;"> </span>
+                            </li>
+                            <li class="sublist2">
+                                Hyperlipidemias
+                                <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                                    <span class="data">  {{bunny.patient_details.HyperlipidemiasMonth|upper}}/{{bunny.patient_details.HyperlipidemiasYear|upper}}</span>
+                                  </div>
+                                <span class="spanLine" style="width: 280px;  margin-left: 189px;"> </span>
+                            </li>
+                            <li class="sublist2">
+                                Osteoarthritis
+                                <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                                    <span class="data">  {{bunny.patient_details.OsteoarthritisMonth|upper}}/{{bunny.patient_details.OsteoarthritisYear|upper}} </span>
+                                  </div>
+                                <span class="spanLine" style="width: 280px;  margin-left: 201px;"> </span>
+
+                            </li>
+                            <li class="sublist2">
+                                Asthma/COPD/Bronchitis
+                                <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                                    <span class="data">  {{bunny.patient_details.AsthmaOrCOPDOrBronchitisMonth|upper}}/{{bunny.patient_details.AsthmaOrCOPDOrBronchitisYear|upper}} </span>
+                                  </div>
+                                <span class="spanLine" style="width: 280px;  margin-left: 142px;"> </span>
+                            </li>
+                            <li class="sublist2">
+                                Cancer
+                                <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                                    <span class="data"> {{bunny.patient_details.CancerMonth|upper}}/{{bunny.patient_details.CancerYear|upper}}  </span>
+                                  </div>
+                                <span class="spanLine" style="width: 280px;  margin-left: 239px;"> </span>
+                            </li>
+                            <li class="sublist2">
+                                Alcohol/Drug abuse
+                                <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                                    <span class="data">  {{bunny.patient_details.AlcoholOrDrugAbuseMonth|upper}}/{{bunny.patient_details.AlcoholOrDrugAbuseYear|upper}}  </span>
+                                  </div>
+                                <span class="spanLine" style="width: 280px;  margin-left:174px;"> </span>
+                            </li>
+                            <li class="sublist2">
+                                Any HIV/ or STD Related ailment
+                                <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                                    <span class="data">   {{bunny.patient_details.RelatedAlimentsMonth|upper}}/{{bunny.patient_details.RelatedAlimentsYear|upper}} </span>
+                                  </div>
+                                <span class="spanLine" style="width: 280px;  margin-left: 101px;"> </span>
+                            </li>
+                            <li class="sublist2">
+                                Any other ailment, give details
+                                <div style="position:absolute; margin: -13px 0 0px 310px; ">
+                                    <span class="data">{{bunny.patient_details.OtherAliments|upper}}  </span>
+                                  </div>
+                                <span class="spanLine" style="width: 280px;  margin-left: 120px;"> </span>
+                            </li>
+
+                        </ol>
+                    </li>
+
+
+                    <li class="list2">Expected number of Days/stay in hospital :
+                        <div style="position:absolute; margin: -13px 0 0px 361px; ">
+                            <span class="data"> {{bunny.hospital_details.Days_In_Hospital|upper}} </span>
+                          </div>
+                        <span class="spanLine" style="width: 252px;  margin-left:106px;"> </span>
+                        Days
+                    </li>
+
+                    <li class="list2">Days in ICU :
+                        <div style="position:absolute; margin: -13px 0 0px 361px; ">
+                            <span class="data"> {{bunny.hospital_details.Days_In_ICU|upper}} </span>
+                          </div>
+                        <span class="spanLine" style="width: 252px;  margin-left: 257px;"> </span>
+                        Days
+                    </li>
+
+                    <li class="list2">Room Type :
+                        <div style="position:absolute; margin: -13px 0 0px 361px; ">
+                            <span class="data"> {{bunny.hospital_details.Room_Type|upper}} </span>
+                          </div>
+                        <span class="spanLine" style="width: 280px;  margin-left: 263px;"> </span>
+                    </li>
+
+                    <li class="list2">Per day room rent+nursing and service charges+patients diet :
+                        <div style="position:absolute; margin: -13px 0 0px 361px; ">
+                            <span class="data"> {{bunny.hospital_details.Per_Day_Room_Rent|upper}} </span>
+                          </div>
+                        <span class="spanLine" style="width: 280px;  margin-left: 10px;"> </span>
+                    </li>
+                    <li class="list2"> Expected cost of investigation + diagnostic :
+                        <div style="position:absolute; margin: -13px 0 0px 361px; ">
+                            <span class="data"> {{bunny.hospital_details.Cost_Of_Investigation|upper}} </span>
+                          </div>
+                        <span class="spanLine" style="width: 280px;  margin-left: 108px;"> </span>
+                    </li>
+
+                    <li class="list2"> ICU charges :
+                        <div style="position:absolute; margin: -13px 0 0px 361px; ">
+                            <span class="data"> {{bunny.hospital_details.ICU_Charges|upper}}</span>
+                          </div>
+                        <span class="spanLine" style="width: 280px;  margin-left: 260px;"> </span>
+                    </li>
+
+                    <li class="list2"> OT Charges :
+                        <div style="position:absolute; margin: -13px 0 0px 361px; ">
+                            <span class="data">{{bunny.hospital_details.OT_Charges|upper}}</span>
+                          </div>
+                        <span class="spanLine" style="width: 280px;  margin-left: 261px;"> </span>
+                    </li>
+
+                    <li class="list2">Professional fees Surgeon+Anesthetist Fees+consultation Charges:
+                        <div style="position:absolute; margin: -13px 0 0px 400px; ">
+                            <span class="data">{{bunny.hospital_details.ProfessionalFeesSurgeon|upper}} </span>
+                          </div>
+                        <span class="spanLine" style="width: 235px;  margin-left: 38px;"> </span>
+                    </li>
+                    <li class="list2"> Medicines+Consumables+Cost of Implants (if applicable please specify):
+                        <div style="position:absolute; margin: -13px 0 0px 400px; ">
+                            <span class="data"> {{bunny.hospital_details.cost_Of_Implant|upper}} </span>
+                          </div>
+                        <span class="spanLine" style="width: 235px;  margin-left: 8px;"> </span>
+
+                    </li>
+
+                    <li class="list2">Other hospital expenses if any:
+                        <div style="position:absolute; margin: -13px 0 0px 400px; ">
+                            <span class="data">  {{bunny.hospital_details.OtherHospitalIfAny|upper}}  </span>
+                          </div>
+                        <span class="spanLine" style="width: 235px;  margin-left:222px;"> </span>
+                    </li>
+                    <li class="list2">All-inclusive package charges if any applicable:
+                        <div style="position:absolute; margin: -13px 0 0px 400px; ">
+                            <span class="data">  {{bunny.hospital_details.All_Including_Package|upper}}</span>
+                          </div>
+                        <span class="spanLine" style="width: 235px;  margin-left: 137px;"> </span>
+                    </li>
+                    <li class="list2">Sum total expected cost of hospitalization :
+                        <div style="position:absolute; margin: -13px 0 0px 361px; ">
+                            <span class="data">{{bunny.hospital_details.total|upper}}  </span>
+                          </div>
+                        <span class="spanLine" style="width: 280px;  margin-left: 118px;"> </span>
+                    </li>
+
+                </ol>
+
+
+
+
+                 <div class="heading" style="font-size:18px">
+                    DECLARATION
+                    <div style="    display: inline;    margin-left: 5px;">(Mandatory)
+                    </div>
+                </div>
+
+                <div style="margin-top: 5px;"></div>
+
+                <div class="heading">(Please read very carefully)</div>
+                <div style="margin-top: 10px;"></div>
+                <div class="heading" style="text-decoration: none; font-size: 13px;">We confirm having read
+                    understood and
+                    agreed to the Declarations of this form</div>
+                <div style="margin-top: 10px;"></div>
+
+
+                <ol type="a">
+                    <li class="list2">Name of the treating doctor :
+                        <div style="position:absolute; margin: -13px 0 0px 230px; ">
+                            <span class="data"> {{bunny.hospital_details.Treating_Doctor_Name|upper}}  </span>
+                          </div>
+                        <span class="spanLine" style="width: 410px; margin-left: 48px;"> </span>
+                    </li>
+                    <li class="list2">Qualification:
+                        <div style="position:absolute; margin: -13px 0 0px 230px; ">
+                            <span class="data">  {{doctor_details.qualification|upper}} </span>
+                          </div>
+                        <span class="spanLine" style="width: 410px; margin-left: 125px;"> </span>
+                    </li>
+                    <li class="list2">Registration number with State code:
+                        <div style="position:absolute; margin: -13px 0 0px 230px; ">
+                            <span class="data">  {{doctor_details.doctorRegistrationNo}}  </span>
+                          </div>
+                        <span class="spanLine" style="width: 410px; margin-left: 9px;"> </span>
+                    </li>
+
+                    <div style="margin-top: 45px;"></div>
+                    <span class="spanBoxBig"></span>
+                    <span class="my-42"></span>
+                    <span class="spanBoxBig"></span>
+                </ol>
+
+                <span class="heading"
+                    style="      text-decoration: none;          font-size: 13px;          text-align: start;          margin-left: 47px;">Hospital
+                    Seal (must include Hospital ID)</span>
+
+                <span class="heading"
+                    style="      text-decoration: none;          font-size: 13px;          text-align: start;          margin-left: 81px;">Patient
+                    / Insured Name and Sign</span>
+
+
+                {% comment %} <div style="margin-top: 400px;"></div> {% endcomment %}
+
+            </div>
+             
+
+            <div style="margin-top: 1px;"></div>
+        </div>
+        <div style="margin: 37px 0px 0px 70px;"> 3 | <span class="note2"> p a g e</span></div>
+
+    </div>
+
+
+    <div style="width: 100%;     height: 22px;  "></div>
+
+    <!-- page 4 -->
+
+
+    <!-- page 5 -->
+
+    <div class="container" style="height:1000px;" >
+        <div class="border">
+            <div class="logo">
+                <img class="logoimg" src="safe.jpeg" alt="">
+            </div>
+            <div class="content">
+                <div class="heading">
+                </div>
+
+                <div class="note">
+                    <span class="my-5"></span>
+                </div>
+                <span class="my-5"></span>
+                <div class="heading" style="text-align: start;">
+                    DECLARATION BY THE PATIENT / REPRESENTATIVE
+                </div>
+
+                <ol type="a" style="margin: 19px; ">
+                    <li class="list2"> I agree to allow the hospital to submit all original documents pertaining to
+                        hospitalization
+                        to the Insurer/TPA after
+                        the discharge. I agree to sign on the Final Bill & the Discharge Summary, before my discharge.
+                    </li>
+                    <li class="list2"> Payment to hospital is governed by the terms and conditions of the policy. In case
+                        the
+                        insurer / TPA is not liable to
+                        settle the hospital bill, I undertake to settle the bill as per the terms and conditions of the
+                        policy.
+                    </li>
+                    <li class="list2">All non-medical expenses and expenses not relevant to current hospitalization and
+                        the amounts
+                        over & above
+                        the limit authorized by the Insurer/TPA not governed by the terms and conditions of the policy
+                        will be paid
+                        by me.
+                    </li>
+                    <li class="list2">I hereby declare to abide by the terms and conditions of the policy and if at any
+                        time the
+                        facts disclosed by me are
+                        found to be false or incorrect I forfeit my claim and agree to indemnify the insurer / TPA.
+                    </li>
+
+                    <li class="list2">I agree and understand that TPA is in no way warranting the service of the hospital
+                        & that
+                        the Insurer / TPA
+                        is in no way guaranteeing that the services provided by the hospital will be of a particular
+                        quality or
+                        standard.
+                    </li>
+                    <li class="list2">I hereby warrant the truth of the forgoing particulars in every respect and I agree that if any I have made or
+shall make any false or untrue statement, suppression or concealment with respect to the claim, my right to
+claim reimbursement of the said expenses shall be absolutely forfeited.
+                    </li>
+                    <li class="list2">I agree to indemnify the hospital against all expenses incurred on my behalf, which
+                        are not
+                        reimbursed by the
+                        Insurer
+                        / TPA.
+                    </li>
+
+                    <li class="list2">
+                        “I/We authorize Insurance Company/TPA to contact me/us through mobile/email for any update on
+                        this
+                        claim"
+
+                        <ul style="    list-style: none;
+                        line-height: normal;
+                        margin-left: -40px; ">
+                            <li class="sublist2">
+                                <span class="my-5"> a) </span>
+                                Patient's / Insured's Name:
+                                 <div style="position:absolute; margin: -13px 0 0px 200px; ">
+                            <span class="data"> {{bunny.patient_details.Name|upper}}</span>
+                        </div>
+                                <span class="spanLine" style="width: 367px;  left: 804px;"> </span>
+
+                            </li>
+                            <li class="sublist2">
+                                <span class="my-5"> b) </span>
+                                Contact number:
+                                 <div style="position:absolute; margin: -13px 0 0px 153px; ">
+                            <span class="data"> {{bunny.patient_details.Phone|upper}}</span>
+                        </div>
+                                <span class="spanLine" style="width: 157px;"> </span>
+
+
+                                <span class="sublist2">
+                                    <span class="my-5"> c) </span>
+                                    E-mail ID(optional):
+                                    <span class="spanLine" style="width: 157px;"> </span>
+                                </span>
+                            </li>
+
+                            <li class="sublist2">
+                                <span class="my-5"> d) </span>
+                                Patient's / Insured's Signature:
+                                <span class="spanLine" style="width: 383px;"> </span>
+                                <div class="my-5"></div>
+                                <div class="dot">Date:
+                                    <span class="spanLine" style="width: 157px;"> </span>
+                                    Time:
+                                    <span class="spanLine" style="width: 157px;"> </span>
+                                    </span>
+                                </div>
+
+                            </li>
+
+                </ol>
+                </li>
+
+                <div class="heading">
+                    HOSPITAL DECLARATION
+                </div>
+                <div class="my-5"></div>
+
+                <ol type="a" style="margin: 19px; ">
+                    <li class="list2"> We have no objection to any authorized TPA / Insurance Company official verifying
+                        documents pertaining to
+                        hospitalization.
+                    </li>
+                    <li class="list2">All valid original documents duly countersigned by the insured / patient as per the
+                        checklist below will be sent to
+                        TPA/insurance Company within 7 days of the patient’s discharge.
+                    </li>
+                    <li class="list2">we agree that TPA / Insurance Company will not be liable to make the payment in the
+                        event
+                        of any discrepancy
+                        between the facts in this form and discharge summary or other documents.
+                    </li>
+                    <li class="list2">The patient declaration been signed by the patient or by his representative in our
+                        presence.
+                    </li>
+
+                    <li class="list2">We agree to provide clarifications for the queries raised regarding this hospitalization and we take the sole
+responsibility for any delay in offering clarifications.
+                    </li>
+                    <li class="list2">We will abide by the terms and conditions agreed in the MOU.
+                    </li>
+                    <li class="list2">We confirm that no additional amount would be collected from the insured in excess
+                        of
+                        Agreed Package Rates
+                        except costs towards non-admissible amounts (including additional charges due to opting higher
+                        room rent
+                        than
+                        eligibility choosing separate line of treatment which is not envisaged/considered in package.)
+                    </li>
+                    <li class="list2">We confirm that no recoveries would be made from the deposit amount collected from
+                        the
+                        insured except for costs
+                        towards non-admissible amounts (including additional charges due to opting higher room rent than
+                        eligibility/
+                        choosing separate line of treatment which is not envisaged/considered in package.)
+                    </li>
+                    <li class="list2">In the event of unauthorized recovery of any additional amount from the Insured in
+                        excess
+                        of Agreed Package Rates,
+                        the authorized TPA / Insurance Company reserves the right to recover the same from us (the
+                        Network
+                        Provider) and
+                        /or take necessary action, as provided under the MOU or applicable laws.
+                    </li>
+
+                    </li>
+
+                    <div style="    margin-top: 65px;">
+                        <span style="    font-weight: bolder;
+              font-size: 15px;"> Hospital Seal</span>
+                        <span style="    font-weight: bolder; margin-left: 300px;
+              font-size: 15px;"> Doctor's Signature</span>
+                    </div>
+
+                    <div style="margin-top:2px ;">
+                        <span style="font-size: 14px;"> Date & Time:</span>
+                    </div>
+                 
+
+
+                   
+                </ol>
+
+            </div>
+            <!-- <div style="margin-bottom:200px ;"></div> -->
+        </div>
+        <div style="margin: 50px 0px 0px 70px;"> 4 | <span class="note2"> p a g e</span></div>
+
+    </div>
+    
+<!-- page 6 -->
+
+   
+
+
+</div>
+
+<script>
+    {% comment %} function plzDown() {
+     
+
+      var element = document.getElementById('invoice');
+      html2pdf(element, {
+      margin:       10,
+      filename:     'myfile.pdf',
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2, logging: true, dpi: 192, letterRendering: true },
+      jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      });
+
+    } {% endcomment %}
+
+  window.onload = function() {
+            document.getElementById("download")
+                .addEventListener("click", () => {
+                    const invoice = this.document.getElementById("invoice");
+                    console.log(invoice);
+                    console.log(window);
+                    var opt = {
+                        margin: 0,
+                        filename: 'Vidal.pdf',
+                        image: {
+                            type: 'jpeg',
+                            quality: 0.98
+                        },
+                        html2canvas: {
+                            scale: 4
+                        },
+                        jsPDF: {
+                            unit: 'in',
+                            format: 'letter',
+                            orientation: 'portrait'
+                        }
+                    };
+                    html2pdf().from(invoice).set(opt).save();
+                })
+        }
+</script>
+
+</body>
+
+</html>

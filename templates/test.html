@@ -1,0 +1,1932 @@
+
+{% comment %} 
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static '/dist/css/pageAccordian.css' %}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BimaXpress</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static '/plugins/fontawesome-free/css/all.min.css' %}" />
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="{% static 'https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' %}" />
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet"
+    href="{% static '/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}" />
+  <!-- iCheck -->
+  <link rel="stylesheet" href="{% static '/plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}" />
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="{% static '/plugins/jqvmap/jqvmap.min.css' %}" />
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static '/dist/css/pageAccordian.css' %}" />
+  <link rel="stylesheet" href="{% static '/dist/css/adminlte.min.css' %}" />
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{% static '/plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}" />
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="{% static '/plugins/daterangepicker/daterangepicker.css' %}" />
+  <!-- summernote -->
+  <link rel="stylesheet" href="{% static '/plugins/summernote/summernote-bs4.min.css' %}" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.7);
+      transition: opacity 500ms;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    .overlay:target {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .popup {
+      margin: 70px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 5px;
+      width: 30%;
+      position: relative;
+      transition: all 5s ease-in-out;
+    }
+
+    .popup h2 {
+      margin-top: 0;
+      color: #333;
+      font-family: Tahoma, Arial, sans-serif;
+    }
+
+    .popup .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      transition: all 200ms;
+      font-size: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #333;
+    }
+
+    .popup .close:hover {
+      color: #06D85F;
+    }
+
+    .popup .content {
+      max-height: 30%;
+      overflow: auto;
+    }
+
+    @media screen and (max-width: 700px) {
+      .box {
+        width: 70%;
+      }
+
+      .popup {
+        width: 70%;
+      }
+    }
+
+    .hidden {
+      display: none;
+      visibility: hidden;
+    }
+  </style>
+
+<script>
+  function validation() {
+    var tpa = String(document.getElementById("tpa").value);
+    var patient_details_name = String(document.getElementById('patient_details_name').value);
+    var patient_details_gender = String(document.getElementById('patient_details_gender').value);
+    var patient_details_contact_number = String(document.getElementById('patient_details_contact_number').value);
+    var Treating_Doctor = String(document.getElementById('Treating_Doctor').value);
+    var admission_date = String(document.getElementById('admission_date').value);
+    var admission_expectedNoOfDays = String(document.getElementById('admission_expectedNoOfDays').value);
+    if (tpa == 'unselect') {
+      alert("Please Select Company")
+      return false;
+    }
+    else if (patient_details_name.length < 2) {
+      alert("Please Correct Name")
+      return false;
+    }
+    else if (patient_details_gender == 'select') {
+      alert("Please Select Gender")
+      return false;
+    }
+    else if (patient_details_contact_number.length < 10 || patient_details_contact_number.length > 10) {
+      alert("Please Enter Correct NUmber")
+      return false;
+    }
+    else if (Treating_Doctor.length < 2) {
+      alert("Please Enter Doctor Name")
+      return false;
+    }
+    else if (admission_date.length < 2) {
+      alert("Please Enter Admission Date")
+      return false;
+    }
+    else if (admission_expectedNoOfDays.length < 1) {
+      alert("Please Enter Expected No. Of Days Stay In Hospital")
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+</script>
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+ 
+  <div class="wrapper">
+    <!-- Preloader -->
+     <div class="preloader flex-column justify-content-center align-items-center">
+      <img class="animation__shake" src="../static/dist/img/SmallLogo.jpeg" alt="bima" height="60"
+        width="60" />
+    </div>
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item ml-2 mr-2 d-none d-sm-inline-block">
+          <img src="../static/img/Imgs/Asset 1.svg" height="40em" alt="" srcset="">
+        </li>
+      </ul>
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        
+      </ul>
+      <form action="/logout" method="POST">
+        {% csrf_token %}
+        <i class="ni ni-single-02 text-red"></i>
+        <span class="nav-link-text"><input class="ml-3" style="border: none; background: transparent" type="submit"
+            value="Logout" /></span>
+      </form>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4"
+      style="margin-top: 5em; max-height: 80%; background-color: #f4f6f9; color: black; border-top-right-radius: 20px;border-bottom-right-radius: 20px;">
+      <!-- Brand Logo -->
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="true">
+            <!-- Add icons to the links using the .nav-icon class
+                 with font-awesome or any other icon font library -->
+            <li class="nav-item menu-open" style="margin-left: -50px !important;">
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/mainpage" class="nav-link active">
+                    <i class="fas fa-home"></i>
+                    <p>Home</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="bunny" class="nav-link active">
+                    <i class="fas fa-envelope"></i>
+                    <p>Email</p>
+                  </a>
+                </li>
+                {% if existForm == "Yes" %}
+                <li class="nav-item">
+                  <a href="/newcase" class="nav-link active">
+
+                    <i style="color:black;" class="fas fa-plus"></i>
+                    <p>New Case</p>
+
+                  </a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a href="/newcase" class="nav-link active" style="background-color: rgb(255, 166, 0);">
+                    <i style="color:black;" class="fas fa-plus"></i>
+                    <p>New Case</p>
+                  </a>
+                </li>
+
+                {% endif %}
+
+                {% if role == 'admin' %}
+                <li class="nav-item">
+                  <a href="/plandetails" class="nav-link active">
+                    <i class="fas fa-clipboard-check"></i>
+                    <p>Plan Details</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/hospital" class="nav-link active">
+                    <i class="fas fa-hospital-alt"></i>
+                    <p>Hospital</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/analist" class="nav-link active">
+                    <i class="fas fa-user-circle"></i>
+                    <p>Analyst</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="/doctor" class="nav-link active">
+                    <i class="fas fa-user-nurse"></i>
+                    <p>Doctor</p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="/empanelledCompanies" class="nav-link active">
+                    <i class="fas fa-calendar-check"></i>
+                    <p>Empanelled Companies</p>
+                  </a>
+                </li>
+
+
+                {% endif %}
+
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper"
+      style="padding-left: 5em !important; padding-right: 5em !important; background-color: white !important;">
+
+      <div class="main" onmouseover="mainHover()" style="width: 100%;">
+        <div id="txt">
+        </div>
+                 
+        <form accept-charset="UTF-8" action="saveData/" enctype="multipart/form-data" id="msform" method="POST">
+          {% csrf_token %}
+          <div class="accordianHeader" style="width: 100%;">
+            <div class="container-fluid" style="width: 100%;">
+              <div class="row" style="margin-top: 5em;">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                      <h4 class="panel-title">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"
+                          aria-expanded="true" aria-controls="collapseOne">
+                          Details of TPA / Insurance Company
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel"
+                      aria-labelledby="headingOne">
+                      <div class="panel-body">
+                        <label for="cars">Insurance Company / TPA</label>
+                       
+                        <select class="form-control" name="insurance_company" id="tpa" onfocusout="getdata()">
+                          <option value="unselect">Select</option>
+                          {% for i in company %}
+                          {% if i == bunny.patient_details.Insurance_Company %}
+                            <option selected value="{{bunny.patient_details.Insurance_Company}}">{{bunny.patient_details.Insurance_Company}}</option>  
+                          {% else %}  
+                            <option value="{{i}}">{{i}}</option>
+                           {% endif %}
+                          {% endfor %}
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingTwo">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                          href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          Patient Details
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="column">
+                            <label for="exampleInputEmail1">Patient Full Name<span style="color: red;">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="patient_details_name" name="patient_details_name" required
+                              value="{{bunny.patient_details.Name}}">
+                           
+                            <label for="cars">Gender : <span style="color: red;">*</span> </label>
+                            <select class="form-control" id="patient_details_gender" name="patient_details_gender" required>
+
+                              {% if bunny.patient_details.Gender == none %}
+                                  <option value="male">Male</option>
+                                  <option value="female">Female</option>
+                                  <option value="transgender">Transgender</option>
+                              {% else %}
+                                <option value="{{bunny.patient_details.Gender}}">{{bunny.patient_details.Gender}}</option>
+                              {% endif %}
+                               
+                                  {% if bunny.patient_details.Gender == "male" %}
+                                    <option value="female">Female</option>
+                                    <option value="transgender">Transgender</option>
+                                    {% elif bunny.patient_details.Gender == "female" %}
+                                    <option value="male">Male</option>
+                                    <option value="transgender">Transgender</option>
+                                    {% elif bunny.patient_details.Gender == "transgender" %}
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                  {% endif %}
+                                  
+                            </select>
+
+
+
+                            <label for="exampleInputEmail1">Age : Year </label>
+                            <input class="form-control" name="patient_details_ageYear"
+                              value="{{bunny.patient_details.AgeYear}}" type="number" >
+
+                            <label for="exampleInputEmail1">Age : Month </label>
+                            <input class="form-control" name="patient_details_ageMonth" type="number"
+                              value="{{bunny.patient_details.AgeMonth}}">
+                                
+                            <label for="exampleInputEmail1">Date of birth </label>
+                            <input class="form-control" name="patient_details_date" type="date"
+                              value="{{bunny.patient_details.DOB}}" required>
+
+                          
+
+                            <label for="exampleInputEmail1">Patient Contact Number <span style="color: red;">*</span>
+                            </label>
+                            <input type="number" id="patient_details_contact_number" class="form-control" required name="patient_details_contact_number"
+                              value={{bunny.patient_details.Phone}}>
+
+                            <label for="exampleInputEmail1">Contact Number of Attending Relative</label>
+                            <input class="form-control" name="patient_details_numberOfAttendingRelative" type="text"
+                              value={{bunny.patient_details.Attending_Relative_Number}}>
+
+                          </div>
+                          <div class="column">
+                            <label for="exampleInputEmail1">Insured Member ID Card No </label>
+                            <input class="form-control" name="patient_details_insuredMemberIdCardNo" type="text"
+                              value="{{bunny.patient_details.Health_Id}}">
+                            <label for="exampleInputEmail1">Policy Number / Corporate Name </label>
+                            <input class="form-control" name="patient_details_policyNumberorCorporateName" type="text"
+                              value="{{bunny.patient_details.Policy_Id}}">
+
+                            <label for="exampleInputEmail1">Employee ID</label>
+                            <input class="form-control" name="patient_details_EmployeeId" type="text"
+                              value="{{bunny.patient_details.EmployeeId}}">
+
+                            {% if bunny.patient_details.patient_details_HealthInsurance == "Yes" %}
+
+                            <div class="onclickYes" id="onclickYes">
+                              <label for="exampleInputEmail1">Other Insurance Company Name</label>
+                              <input class="form-control" name="HealthInsuranceYesCompanyName" type="text"
+                                value="{{bunny.patient_details.HealthInsuranceYesCompanyName}}">
+
+                              <label for="exampleInputEmail1">Other Insurance Company Details</label>
+                              <input class="form-control" name="Give_Company_details" type="text"
+                                value="{{bunny.patient_details.Give_Company_details}}">
+
+                                <input type="text" name="patient_details_HealthInsurance" value="Yes" style="visibility: hidden;" >
+                            </div>
+                            {% else %}
+
+                            <label for="exampleInputEmail1">Curruntly Do You Have Any Health Insurance</label> <br>
+
+                            <input type="radio" name="patient_details_HealthInsurance" value="Yes" id="nanana"
+                              onclick="handler()">
+                            Yes
+                            <input type="radio" name="patient_details_HealthInsurance" value="No" id="nanana2"
+                              onclick="yeshandler()"> No
+
+                            {% endif %}
+
+                            <div class="onclickYes" id="onclickYes">
+                            </div>
+                            <!-- hidden -->
+                            <input id="bunny_patient_details_HealthInsurance" style="visibility: hidden; "
+                              value="{{bunny.patient_details.patient_details_HealthInsurance}}" /> <br>
+
+                            <!-- hidden -->
+                            <script>
+                              var rdf = document.getElementById('bunny_patient_details_HealthInsurance').value;
+                              if (rdf.toString() == "Yes") {
+                                document.getElementById('nanana').checked = true;
+                              }
+                              else {
+                                document.getElementById('nanana2').checked = true;
+                              }
+                            </script>
+
+                            {% if bunny.patient_details.Physician == "Yes" %}
+
+                            <label for="exampleInputEmail1">Physician Name</label>
+                            <input class="form-control" name="PhysicianYesPhysicianName"
+                              type="text" value="{{bunny.patient_details.PhysicianYesPhysicianName}}">
+
+                            <label for="exampleInputEmail1">Physician Contact Number</label>
+                            <input class="form-control" name="PhysicianYesPhysicianContactNum"
+                              type="tel" value="{{bunny.patient_details.PhysicianYesPhysicianContactNum}}">
+
+                              <input type="text" name="patient_details_familyPhysician" value="Yes" style="visibility: hidden;">
+                           
+
+                            {% else %}
+
+
+
+                            <label for="exampleInputEmail1">Do You Have a Family Physician</label> <br>
+                            <input type="radio" name="patient_details_familyPhysician" value="Yes" id="physicianYes" onclick="physicianYesclick()">
+                            Yes
+                            <input type="radio" name="patient_details_familyPhysician" value="No" id="physicianNo" onclick="physicianNoclick()"> No
+
+                            {% endif %}
+
+
+
+                            <input id="bunny_patient_details_familyPhysician" style="visibility: hidden;"
+                              value="{{bunny.patient_details.patient_details_familyPhysician}}" />
+
+                            <!-- hidden -->
+                            <script>
+                              var rdf = document.getElementById('bunny_patient_details_familyPhysician').value;
+                              if (rdf.toString() == "Yes") {
+                                document.getElementById('physicianYes').checked = true;
+                              }
+                              else {
+                                document.getElementById('physicianNo').checked = true;
+
+                              }
+                            </script>
+                            <div class="onclickYes" id="onclickYesPhysician">
+
+                            </div>
+                            <label for="exampleInputEmail1">Current Address </label>
+                            <input class="form-control" name="patient_details_currentAddress" type="text"
+                              value="{{bunny.patient_details.Address}}">
+
+                            <label for="">City<span style="color: red;">*</span>
+                            </label>
+                            <input type="text" class="form-control" id="city" name="city" required
+                              value="{{bunny.patient_details.city}}">
+                           
+
+                            <label for="exampleInputEmail1">Occupation</label>
+                            <input class="form-control" name="patient_details_occupation"
+                              value="{{bunny.patient_details.Occupation}}" type="text">
+                            <br>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                          href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          Doctor and Diagnosis Details
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel"
+                      aria-labelledby="headingThree">
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="column">
+                      <label for="exampleInputEmail1">Name of The Treating Doctor <span
+                                style="color: red;">*</span> </label>
+                        <select class="form-control" name="doctor_email" id="tpa" onfocusout="getdata()">
+                          <option value="unselect">Select</option>
+                          {% for i,j in doctor.items %}
+                              {% if j.name|upper == bunny.hospital_details.Treating_Doctor_Name|upper %}
+                                  <option selected value="{{i}}+{{j.name}}">{{bunny.hospital_details.Treating_Doctor_Name|upper}}</option>  
+                                {% else %}  
+                                  <option value="{{i}}+{{j.name}}">{{j.name|upper}}</option>
+                                {% endif %}
+                          {% endfor %}
+                        </select>
+                            
+
+                            <label for="exampleInputEmail1">Contact Number</label>
+                            <input class="form-control" name="Contact_number" type="text"
+                              value="{{bunny.hospital_details.Contact_number}}">
+
+                            <label for="exampleInputEmail1">Nature of illness / Disease With Presenting
+                              complaints</label>
+                            <input class="form-control" name="doctor_natureOfLiness" type="text"
+                              value="{{bunny.patient_details.Nature_Of_Illness}}">
+
+                            <label for="exampleInputEmail1">Relevant Clinic Findings</label>
+                            <input class="form-control" name="doctor_releventClinicFindings" type="text"
+                              value="{{bunny.patient_details.Relevant_Critical_Findings}}">
+
+                            <label for="exampleInputEmail1">Duration of Present Aliment</label>
+                            <input class="form-control" name="doctor_durationOfPresentAliment" type="text"
+                              value="{{bunny.patient_details.Duration_Of_Present_Ailments}}">
+
+                            <label for="exampleInputEmail1">Date Of First Consultation</label>
+                            <input class="form-control" name="doctor_dateOfFirstConsultation" type="date"
+                              value="{{bunny.patient_details.Date_Of_First_Consultation}}">
+                              
+                              {{bunny.patient_details.Date_Of_First_Consultation}}
+
+                            <label for="exampleInputEmail1">Past History Of Present Aliment , If Any</label>
+                            <input class="form-control" name="doctor_PastHistoryOfPresentAlignment" type="text"
+                              value="{{bunny.patient_details.Past_History_Of_Present_Ailments}}">
+
+                            <label for="exampleInputEmail1">Provisional Diagnosis</label>
+                            <input class="form-control" name="doctor_provisionalDiagnosis" type="text"
+                              value="{{bunny.patient_details.Provision_Diagnosis}}">
+
+                            <label for="exampleInputEmail1">ICD Code </label>
+                            <input class="form-control" name="doctor_icdCode" type="tel"
+                              value="{{bunny.patient_details.ICD_Code}}">
+
+                            <label for="exampleInputEmail1">Proposed Line Of Treatment <span
+                                style="color: red;">*</span> </label> <br>
+                              
+                                {% if "Medical Management" in bunny.patient_details.Proposed_Line_Of_Treat %}
+                            
+                            <input name="doctor_proposedLineOfTreatment_Medical_Managment" value="Yes"
+                              id="madical_managment" type="checkbox" onclick="" checked>
+                              Medical Management &nbsp;&nbsp;&nbsp;
+                            {% else %}
+                            <input name="doctor_proposedLineOfTreatment_Medical_Managment" value="Yes"
+                              id="madical_managment" type="checkbox" onclick="">
+                            Medical Managment &nbsp;&nbsp;&nbsp;
+                            {% endif %}
+                            {% if "Surgical Managment" in bunny.patient_details.Proposed_Line_Of_Treat %}
+                            <input name="doctor_proposedLineOfTreatment_Surgical_Managment" value="Yes" id="surgical"
+                              type="checkbox" checked> Surgical
+                            Managment <br>
+                            {% else %}
+                            <input name="doctor_proposedLineOfTreatment_Surgical_Managment" value="Yes" id="surgical"
+                              type="checkbox" > Surgical
+                            Managment <br>
+                            {% endif %}
+                            {% if "Intensive Care" in bunny.patient_details.Proposed_Line_Of_Treat%}
+                            <input name="doctor_proposedLineOfTreatment_Intensive_Care" value="Yes" id='intensiveCare'
+                              type="checkbox" checked>
+                            Intensive Care &nbsp;&nbsp;&nbsp;
+                            {% else %}
+                            <input name="doctor_proposedLineOfTreatment_Intensive_Care" value="Yes" id='intensiveCare'
+                              type="checkbox">
+                            Intensive Care &nbsp;&nbsp;&nbsp;
+                            {% endif %}
+                            {% if "Investigation" in bunny.patient_details.Proposed_Line_Of_Treat %}
+                            <input name="doctor_proposedLineOfTreatment_Investigation" value="Yes" id="investigation"
+                              type="checkbox" checked>
+                            Investigation <br>
+                            {% else %}
+                            <input name="doctor_proposedLineOfTreatment_Investigation" value="Yes" id="investigation"
+                              type="checkbox">
+                            Investigation <br>
+                            {% endif %}
+                            {% if "Non Allopathic Treatment" in bunny.patient_details.Proposed_Line_Of_Treat %}
+                            <input name="doctor_proposedLineOfTreatment_Allopathic_Treatment" value="Yes"
+                              id='nonAllopathic' type="checkbox" checked> Non
+                            Allopathic Treatment <br>
+                            {% else %}
+                            <input name="doctor_proposedLineOfTreatment_Allopathic_Treatment" value="Yes"
+                              id='nonAllopathic' type="checkbox"> Non
+                            Allopathic Treatment <br>
+                            {% endif %}
+
+
+                            <label for="exampleInputEmail1">If Investigation & /or medical management provide
+                              details</label>
+                            <input class="form-control" type="text"
+                              value="{{bunny.patient_details.If_Investigation_Or_Medical_Management_Provide_Details}}"
+                              name="If_Investigation_Or_Medical_Management_Provide_Details">
+
+                            <label for="exampleInputEmail1">route of drug administration</label>
+                            <input class="form-control" type="text"
+                              value="{{bunny.patient_details.Route_Of_Drug_Administration}}"
+                              name="Route_Of_Drug_Administration">
+
+
+
+
+                            <!-- hidden -->
+                    
+                            <div id="forLineOfTreatment">
+                              <!-- for surgical -->
+                            </div>
+                          </div>
+                          <div class="column">
+
+                            <label for="exampleInputEmail1">If surgical name of surgery </label>
+                            <input class="form-control" type="text"
+                              value="{{bunny.patient_details.If_Surgical_Name_of_Surgery}}"
+                              name="If_Surgical_Name_of_Surgery">
+
+                            <label for="exampleInputEmail1">ICD 10 PCS code </label>
+                            {{bunny.patient_details.ICD_Code_10_PCS.0}}
+                            <input class="form-control" type="text" value="{{bunny.patient_details.ICD_Code_10_PCS}}"
+                              name="ICD_Code_10_PCS">
+
+
+                            <label for="exampleInputEmail1">If Other Tratment Provide Details</label>
+                            <input class="form-control" name="doctor_ifOtherTratmentProvideDetails"
+                              value="{{bunny.patient_details.If_Other_Treatment_Provide_Details}}" type="text">
+
+                            <label for="exampleInputEmail1">How Did Injury Occure</label>
+                            <input class="form-control" value="{{bunny.patient_details.How_Did_Injury_Occur}}"
+                              name="doctor_howDidInjuryOccure" type="text">
+
+                            <label for="exampleInputEmail1">In Case Of Accident ,Is It RTA</label> <br>
+                            <input type="radio" value="Yes" name="doctor_inCaseOfAccident"
+                              id="doctor_inCaseOfAccidentYes"> Yes
+                            <input type="radio" value="No" name="doctor_inCaseOfAccident"
+                              id="doctor_inCaseOfAccidentNo"> No <br>
+
+                            <input id="bunny_doctor_inCaseOfAccident" style="visibility: hidden;"
+                              value="{{bunny.patient_details.In_Case_Of_Accident}}" /> <br>
+
+                            <!-- hidden -->
+                            <script>
+                              var rdf = document.getElementById('bunny_doctor_inCaseOfAccident').value;
+                              if (rdf.toString() == "Yes") {
+                                document.getElementById('doctor_inCaseOfAccidentYes').checked = true;
+                              }
+                              else {
+                                document.getElementById('doctor_inCaseOfAccidentNo').checked = true;
+                              }
+                            </script>
+
+                            <label for="exampleInputEmail1">Date Of Injury</label>
+                            <input class="form-control" name="doctor_dateOfInjury" type="date"
+                              value="{{bunny.patient_details.Date_Of_Injury}}"> <br>
+
+                              <script>
+                                function policeYes() {
+                                  var FirYes = document.getElementById('forFirNum')
+                                  FirYes.innerHTML = `
+                                        <label for="exampleInputEmail1">FIR No.</label>
+                                                          <input class="form-control" name="doctor_firNo" type="tel"
+                                                            value="{{bunny.patient_details.FIR_Number}}">
+                                        `;
+                                }
+  
+                                function policeNo() {
+                                  var FirNo = document.getElementById('forFirNum')
+                                  FirNo.innerHTML = ``;
+                                }
+                              </script>
+
+                            {% if bunny.patient_details.Reported_To_Police == 'Yes' %} 
+
+                            <label for="exampleInputEmail1">FIR No.</label>
+                            <input class="form-control" name="doctor_firNo" type="tel"
+                              value="{{bunny.patient_details.doctor_firNo}}">
+
+                              <input type="text" value="Yes" name="doctor_reportedToPolice" style="visibility: hidden;">
+
+                            {% else %}
+                            <label for="exampleInputEmail1">Reported To Police</label>
+                            <br />
+                            <input type="radio" value="Yes" name="doctor_reportedToPolice" id="policeReportYes"
+                              onclick="policeYes()" />
+                            Yes
+                            <input type="radio" value="No" name="doctor_reportedToPolice" id="policeReportNo"
+                              onclick="policeNo()" />
+                            No <br />
+                            {% endif %}
+
+
+                         
+                            <input id="bunny_policeReportYes" style="visibility: hidden;"
+                              value="{{bunny.patient_details.Reported_To_Police}}" />
+
+                            <!-- hidden -->
+                            <script>
+                              var rdf = document.getElementById('bunny_policeReportYes').value;
+                              if (rdf.toString() == "Yes") {
+                                document.getElementById('policeReportYes').checked = true;
+                              }
+                              else {
+                                document.getElementById('policeReportNo').checked = true;
+
+                              }
+                            </script>
+
+                            <div id="forFirNum">
+                              <!-- for fir -->
+                            </div>
+                            <label for="exampleInputEmail1">Injury/Disease Caused Due To Substance Abuse / Alcohol
+                              Consumption</label> <br>
+                            <input type="radio" name="doctor_injuryorDiseaseCausedDueToSubstance" value="Yes"
+                              id="InjuryYes">
+                            Yes
+                            <input type="radio" name="doctor_injuryorDiseaseCausedDueToSubstance" value="No"
+                              id="InjuryNo">
+                            No <br>
+
+                            <input id="bunny_patient_details_InjuryYes" style="visibility: hidden;"
+                              value="{{bunny.patient_details.Injury_Disease_Caused_Due_To_Substance_Abuse_Alcohol_Consumption_}}" />
+
+                            <!-- hidden -->
+                            <script>
+                              var rdf = document.getElementById('bunny_patient_details_InjuryYes').value;
+                              if (rdf.toString() == "Yes") {
+                                document.getElementById('InjuryYes').checked = true;
+                              }
+                              else {
+                                document.getElementById('InjuryNo').checked = true;
+
+                              }
+                            </script>
+                            <br>
+                            <label for="exampleInputEmail1">Test Conducted To Establish This</label> <br>
+                            <input type="radio" name="doctor_testAlcohol" value="Yes" id="testAlcoholYes"
+                              onclick="testAlcohol()">
+                            Yes
+                            <script>
+                              function testAlcoholNo() {
+                                document.getElementById('testAlcohol').innerHTML = ``;
+                              }
+                            </script>
+                            <input type="radio" name="doctor_testAlcohol" value="No" id="testAlcoholNo"
+                              onclick="testAlcoholNo()"> No <br>
+
+                            <input id="bunny_patient_details_testAlcoholYes" style="visibility: hidden; display: none;"
+                              value="{{bunny.patient_details.doctor_testAlcohol}}">
+
+                            <!-- hidden -->
+                            <script>
+                              var rdfAlcohol = document.getElementById('bunny_patient_details_testAlcoholYes').value;
+                              if (rdfAlcohol.toString() == "Yes") {
+                                document.getElementById('testAlcoholYes').checked = true;
+                              }
+                              else {
+                                document.getElementById('testAlcoholNo').checked = true;
+
+                              }
+                            </script>
+
+                            <div id="testAlcohol">
+
+                            </div>
+
+                            <br><br>
+                            <label for="exampleInputEmail1">In Case Maternity</label> <br>
+                            <input type="checkbox" name="doctor_inCaseMaternityG" value="Yes" id="G"> G
+                            <input type="checkbox" name="doctor_inCaseMaternityP" value="Yes" id="P"> P
+                            <input type="checkbox" name="doctor_inCaseMaternityL" value="Yes" id="L"> L
+                            <input type="checkbox" name="doctor_inCaseMaternityA" value="Yes" id="A"> A
+                            <br>
+                            {% if bunny.hospital_details.ExpectedDateOfDelivery == "" %}
+                            <label for="exampleInputEmail1">Expected Date Of Delivery</label>
+                            <input class="form-control" name="doctor_expectedDateOfDelivery"
+                              value="{{bunny.hospital_details.ExpectedDateOfDelivery}}" type="date">
+                            {% else %}
+                            <label for="exampleInputEmail1">Expected Date Of Delivery</label>
+                            <input class="form-control" name="doctor_expectedDateOfDelivery"
+                              value="{{bunny.hospital_details.ExpectedDateOfDelivery}}" type="date">
+                            {% endif %}
+
+                            <input id="bunny_patient_details_G" style="visibility: hidden;"
+                              value="{{bunny.patient_details.G}}" />
+
+                            <input id="bunny_patient_details_P" style="visibility: hidden;"
+                              value="{{bunny.patient_details.P}}" />
+
+                            <input id="bunny_patient_details_L" style="visibility: hidden;"
+                              value="{{bunny.patient_details.L}}" />
+
+                            <input id="bunny_patient_details_A" style="visibility: hidden;"
+                              value="{{bunny.patient_details.A}}" />
+
+                            <!-- hidden -->
+                            <script>
+                              var rdfG = document.getElementById('bunny_patient_details_G').value;
+                              if (rdfG.toString() == "Yes") {
+                                document.getElementById('G').checked = true;
+                              }
+                              var rdfP = document.getElementById('bunny_patient_details_P').value;
+                              if (rdfP.toString() == "Yes") {
+                                document.getElementById('P').checked = true;
+                              }
+                              var rdfL = document.getElementById('bunny_patient_details_L').value;
+                              if (rdfL.toString() == "Yes") {
+                                document.getElementById('L').checked = true;
+                              }
+                              var rdfA = document.getElementById('bunny_patient_details_A').value;
+                              if (rdfA.toString() == "Yes") {
+                                document.getElementById('A').checked = true;
+                              }
+                            </script>
+
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingThree">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion"
+                          href="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                          Admission Details
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse" role="tabpanel"
+                      aria-labelledby="headingThree">
+                      <div class="panel-body">
+                        <div class="row">
+                          <div class="column">
+                            <label for="exampleInputEmail1">Date Of Admission <span style="color: red;">*</span>
+                            </label>
+
+                            <input class="form-control" id="admission_date" name="admission_date" required
+                              value="{{bunny.hospital_details.Date_of_Admission}}" type="date">
+                            <br>
+
+                            <label for="exampleInputEmail1">Time Of Admission <span style="color: red;">*</span>
+                            </label>
+
+                            <input class="form-control" name="admission_time" required
+                              value="{{bunny.hospital_details.admission_time}}" type="time">
+
+                            <label for="exampleInputEmail1">Is This a Emergency/Planned Hospitalization Event ? <span
+                                style="color: red;">*</span> </label>
+                            <br>
+                            <input type="radio" name="admission_isThisAEmergencyPlannedHospitalization"
+                              value="Emergency" id="Emergency" required> &nbsp;&nbsp;&nbsp; Emergency &nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="admission_isThisAEmergencyPlannedHospitalization" value="Planned"
+                              id="Planned" required> &nbsp;&nbsp;&nbsp; Planned <br>
+
+                            <input id="bunny420" style="visibility: hidden;"
+                              value="{{bunny.patient_details.isThisAEmergencyPlannedHospitalization}}" />
+
+                            <!-- hidden -->
+                                <script>
+                                  var rdf = document.getElementById('bunny420').value;
+                                  if (rdf.toString() == "Planned") {
+                                    document.getElementById('Planned').checked = true;
+                                  }
+                                  else {
+                                    document.getElementById('Emergency').checked = true;
+                                  }
+                                </script> <br>
+                                
+                            <label for="exampleInputEmail1">Expected No. Of Days Stay In Hospital <span
+                                style="color: red;">*</span> </label>
+                            <input class="form-control" id="admission_expectedNoOfDays" value="{{bunny.hospital_details.Days_In_Hospital}}"
+                              name="admission_expectedNoOfDays" type="number">
+
+                            <label for="exampleInputEmail1">Days In ICU</label>
+                            <input class="form-control" value="{{bunny.hospital_details.Days_In_ICU}}"
+                              name="admission_daysInICU" type="number">
+
+                            <label for="exampleInputEmail1">Room Type</label>
+                            <select class="form-control" name="admission_roomType">
+                              <option value="General">General</option>
+                              <option value="Semi Private">Semi Private</option>
+                              <option value="Private">Private</option>
+                              <option value="Deluxe">Deluxe</option>
+                              <option value="ICU">ICU</option>
+                            </select>
+
+                            <script>
+                              var count = 0
+
+                            
+                              function a() {
+                          
+                                  var admission_perDayRoomRentl = document.getElementById('admission_perDayRoomRent').value;
+                                  if (admission_perDayRoomRentl.length < 1) {
+                                    count = count+0
+                                  }
+                                  else {
+                                      count = count + parseInt(admission_perDayRoomRentl)
+                                  }
+                                  // admission_sumTotalExpected.value = count;
+                                  console.log(count)
+                                  // admission_sumTotalExpected.value = count
+                                  document.getElementById("admission_sumTotalExpected").value = count;
+                              }
+                              function b() {
+                                  var admission_expectedCostForInvestigation = document.getElementById('admission_expectedCostForInvestigation').value;
+                                  if (admission_expectedCostForInvestigation.length < 1) {
+                                      count = count+0
+                                  }
+                                  else {
+                                      count = count + parseInt(admission_expectedCostForInvestigation)
+                                  }
+                                  console.log(count)
+                                  document.getElementById("admission_sumTotalExpected").value = count;
+                                  // admission_sumTotalExpected.value = count;
+                              }
+                              function c() {
+                          
+                                  var admission_icuCharge = document.getElementById('admission_icuCharge').value;
+                                  if (admission_icuCharge.length < 1) {
+                                    count = count+0
+                                  }
+                                  else {
+                                      count = count + parseInt(admission_icuCharge)
+                                      
+                                      // } admission_sumTotalExpected.value = count;
+                                      console.log(count)
+                                  }
+                                  document.getElementById("admission_sumTotalExpected").value = count;
+                              }
+                          
+                              function d() {
+                                  var admission_otCharge = document.getElementById('admission_otCharge').value;
+                                  if (admission_otCharge.length < 1) {
+                                    count = count+0
+                                  }
+                                  else {
+                                      count = count + parseInt(admission_otCharge)
+                                      // } admission_sumTotalExpected.value = count;
+                                      console.log(count)
+                          
+                                  }
+                                  document.getElementById("admission_sumTotalExpected").value = count;
+                              }
+                              function e() {
+                                  var admission_professionalFeesSurgeon = document.getElementById('admission_professionalFeesSurgeon').value;
+                                  if (admission_professionalFeesSurgeon.length < 1) {
+                                    count = count+0
+                                  }
+                                  else {
+                                      count = count + parseInt(admission_professionalFeesSurgeon)
+                                      // } admission_sumTotalExpected.value = count;
+                          
+                                      console.log(count)
+                                  }
+                                  document.getElementById("admission_sumTotalExpected").value = count;
+                              }
+                              function f() {
+                                  var admission_madicineConsumablesCostOfImplats = document.getElementById('admission_madicineConsumablesCostOfImplats').value;
+                                  if (admission_madicineConsumablesCostOfImplats.length < 1) {
+                                    count = count+0
+                                  }
+                                  else {
+                                      count = count + parseInt(admission_madicineConsumablesCostOfImplats)
+                                      // } admission_sumTotalExpected.value = count;
+                                      console.log(count)
+                          
+                                  }
+                                  document.getElementById("admission_sumTotalExpected").value = count;
+                              }
+                              function g() {
+                                  var admission_otherHospitalIfAny = document.getElementById('admission_otherHospitalIfAny').value;
+                                  if (admission_otherHospitalIfAny.length < 1) {
+                                    count = count+0
+                                  }
+                                  else {
+                                      count = count + parseInt(admission_otherHospitalIfAny)
+                                      // } admission_sumTotalExpected.value = count;
+                                      console.log(count)
+                          
+                                  }
+                                  document.getElementById("admission_sumTotalExpected").value = count;
+                              }
+                              function h(params) {
+                                  var admission_allIncludePackageCharge = document.getElementById('admission_allIncludePackageCharge').value;
+                                  if (admission_allIncludePackageCharge.length < 1) {
+                                    count = count+0
+                                  }
+                                  else {
+                                      count = count + parseInt(admission_allIncludePackageCharge)
+                                      // } admission_sumTotalExpected.value = count;
+                                      console.log(count)
+                                  }
+                                  document.getElementById("admission_sumTotalExpected").value = count;
+                              }
+                          
+                          </script>
+
+
+                            <label for="exampleInputEmail1">Per Day Room Rent + Nursing & Services Charge + Patient
+                            
+                              Diet</label>
+
+                            {% if bunny.hospital_details.Per_Day_Room_Rent == none or bunny.hospital_details.Per_Day_Room_Rent == "" %}
+                            
+                            <input class="form-control" id="admission_perDayRoomRent" name="admission_perDayRoomRent"
+                              type="number" onchange="abc()" placeholder=""
+                              value="0">
+                           
+                            {% else %}
+                            
+                             <input class="form-control" id="admission_perDayRoomRent" name="admission_perDayRoomRent"
+                              type="number" onchange="abc()" placeholder=""
+                              value="{{bunny.hospital_details.Per_Day_Room_Rent}}">
+
+                            {% endif %}
+                            
+                            {% if bunny.hospital_details.Cost_Of_Investigation == none or bunny.hospital_details.Cost_Of_Investigation == "" %}
+                            <label for="exampleInputEmail1">Expected Cost For Investigation + Diagnostics</label>
+                            <input class="form-control" id="admission_perDayRoomRent" name="admission_perDayRoomRent"
+                              type="number" onchange="abc()" placeholder=""
+                              value="0">
+                           
+                            {% else %}
+                            
+                             <label for="exampleInputEmail1">Expected Cost For Investigation + Diagnostics</label>
+                              <input class="form-control" id="admission_expectedCostForInvestigation"
+                              name="admission_expectedCostForInvestigation" type="number" placeholder=""
+                              onchange="abc()" value="{{bunny.hospital_details.Cost_Of_Investigation}}">
+
+                            {% endif %}
+
+
+                             {% if bunny.hospital_details.ICU_Charges == none or bunny.hospital_details.ICU_Charges == "" %}
+                            
+                            <label for="exampleInputEmail1">ICU Charge</label>
+                            <input class="form-control" id="admission_perDayRoomRent" name="admission_perDayRoomRent"
+                              type="number" onchange="abc()" placeholder=""
+                              value="0">
+                           
+                            {% else %}
+                            
+                            
+                            <label for="exampleInputEmail1">ICU Charge</label>
+                            <input class="form-control" id="admission_icuCharge" name="admission_icuCharge"
+                              type="number" placeholder="" onchange="abc()"
+                              value="{{bunny.hospital_details.ICU_Charges}}">
+
+                            {% endif %}
+
+
+                             {% if bunny.hospital_details.OT_Charges == none or bunny.hospital_details.OT_Charges == "" %}
+                            <label for="exampleInputEmail1">OT Charge</label>
+                            <input class="form-control" id="admission_perDayRoomRent" name="admission_perDayRoomRent"
+                              type="number" onchange="abc()" placeholder=""
+                              value="0">
+                           
+                            {% else %}
+                             
+                            <label for="exampleInputEmail1">OT Charge</label>
+                            <input class="form-control" id="admission_otCharge" name="admission_otCharge" type="number"
+                              placeholder="" onchange="abc()" value="{{bunny.hospital_details.OT_Charges}}">
+
+                            {% endif %}
+
+                              {% if bunny.hospital_details.ProfessionalFeesSurgeon == none or bunny.hospital_details.ProfessionalFeesSurgeon == "" %}
+                            <label for="exampleInputEmail1">Professional Fees Surgeon + Anesthetist Fees + Consultation
+                              Charge</label>
+                            <input class="form-control" id="admission_perDayRoomRent" name="admission_perDayRoomRent"
+                              type="number" onchange="abc()" placeholder=""
+                              value="0">
+                           
+                            {% else %}
+                            
+                            <label for="exampleInputEmail1">Professional Fees Surgeon + Anesthetist Fees + Consultation
+                              Charge</label>
+                            <input class="form-control" id="admission_professionalFeesSurgeon"
+                              name="admission_professionalFeesSurgeon" type="number" placeholder="" onchange="abc()"
+                              value="{{bunny.hospital_details.ProfessionalFeesSurgeon}}">
+
+                            {% endif %}
+                           
+                              {% if bunny.hospital_details.cost_Of_Implant == none or bunny.hospital_details.cost_Of_Implant == "" %}
+                             <label for="exampleInputEmail1">Medicine + Consumables + Cost of Implants (If Applicable
+                              Please
+                              Specify)</label>
+                            <input class="form-control" id="admission_perDayRoomRent" name="admission_perDayRoomRent"
+                              type="number" onchange="abc()" placeholder=""
+                              value="0">
+                           
+                            {% else %}
+                            
+                            <label for="exampleInputEmail1">Medicine + Consumables + Cost of Implants (If Applicable
+                              Please
+                              Specify)</label>
+                            <input class="form-control" id="admission_madicineConsumablesCostOfImplats"
+                              name="admission_madicineConsumablesCostOfImplats" type="number"
+                              onchange="abc()" value="{{bunny.hospital_details.cost_Of_Implant}}">
+
+                            {% endif %}
+                            
+                            {% if bunny.hospital_details.OtherHospitalIfAny == none or bunny.hospital_details.OtherHospitalIfAny == "" %}
+                            <label for="exampleInputEmail1">Other Hospital If Any</label>
+                            <input class="form-control" id="admission_perDayRoomRent" name="admission_perDayRoomRent"
+                              type="number" onchange="abc()" placeholder=""
+                              value="0">
+                           
+                            {% else %}
+                            
+                             <label for="exampleInputEmail1">Other Hospital If Any</label>
+                            <input class="form-control" id="admission_otherHospitalIfAny"
+                              name="admission_otherHospitalIfAny" type="number" placeholder="" onchange="abc()"
+                              value="{{bunny.hospital_details.OtherHospitalIfAny}}">
+
+                            {% endif %}
+
+                              {% if bunny.hospital_details.All_Including_Package == none or bunny.hospital_details.All_Including_Package == "" %}
+                            <label for="exampleInputEmail1">All Include Package Charges If Any Applicable</label>
+                            <input class="form-control" id="admission_perDayRoomRent" name="admission_perDayRoomRent"
+                              type="number" onchange="abc()" placeholder=""
+                              value="0">
+                           
+                            {% else %}
+                            
+                             <label for="exampleInputEmail1">All Include Package Charges If Any Applicable</label>
+                            <input class="form-control" id="admission_allIncludePackageCharge"
+                              name="admission_allIncludePackageCharge" type="number" placeholder="" onchange="abc()"
+                              value="{{bunny.hospital_details.All_Including_Package}}">
+
+                            {% endif %}
+
+                           
+
+                          
+                           
+                            <!-- do calculation -->
+                            
+                             {% if bunny.hospital_details.total == none or bunny.hospital_details.total == "" %}
+                            <label for="exampleInputEmail1">Sum Total Expected Cost Of Hospitalization <span
+                                style="color: red;">*</span> </label>
+                            <input class="form-control" id="admission_perDayRoomRent" name="admission_perDayRoomRent"
+                              type="number" onchange="abc()" placeholder=""
+                              value="0">
+                           
+                            {% else %}
+                            
+                             <label for="exampleInputEmail1">Sum Total Expected Cost Of Hospitalization <span
+                                style="color: red;">*</span> </label>
+                            <input class="form-control" name="admission_sumTotalExpected"
+                              id="admission_sumTotalExpected" type="number" value="{{bunny.hospital_details.total}}"
+                              placeholder="" required>
+
+                            {% endif %}
+
+                            
+                          </div>
+                           <script>
+                            function abc() {
+                                    var c1=0;
+                                    var c2=0;
+                                    var c3=0;
+                                    var c4=0;
+                                    var c5=0;
+                                    var c6=0;
+                                    var c7=0;
+                                    var c8=0;
+                                    var c9=0;
+                                    c1 =  document.getElementById('admission_perDayRoomRent').value;
+                                    c2 =  document.getElementById('admission_expectedCostForInvestigation').value;
+                                    c3 =  document.getElementById('admission_icuCharge').value;
+                                    c4 =  document.getElementById('admission_otCharge').value;
+                                    c5 =  document.getElementById('admission_professionalFeesSurgeon').value;
+                                    c6 =  document.getElementById('admission_madicineConsumablesCostOfImplats').value;
+                                    c7 =  document.getElementById('admission_otherHospitalIfAny').value;
+                                    c8 =  document.getElementById('admission_allIncludePackageCharge').value;  
+                                    c1=parseInt(c1);
+                                    c2=parseInt(c2);
+                                    c3=parseInt(c3);
+                                    c4=parseInt(c4);
+                                    c5=parseInt(c5);
+                                    c6=parseInt(c6);
+                                    c7=parseInt(c7);
+                                    c8=parseInt(c8);
+                                    var sum = c1+c2+c3+c4+c5+c6+c7+c8;
+                                    console.log("sum value is",sum);
+                                    document.getElementById("admission_sumTotalExpected").value = sum;
+
+                              }
+                            </script>
+                          <div class="column">
+                            <label for="exampleInputEmail1">Mandatory Past History Of Any Chronic Illness If Yes, Since
+                              (month / year)</label>
+                            <p>i) Diabetes</p>
+                            
+                            <div style="display: flex; justify-content: space-evenly;">
+                              <input type="number" value="{{bunny.patient_details.MandatoryPastHistoryMonth}}"
+                                name="admission_mandatoryPastHistoryMonth" class="form-control" placeholder="Month">
+                              <input class="form-control" value="{{bunny.patient_details.MandatoryPastHistoryYear}}"
+                                type="number" placeholder="Year" name="admission_mandatoryPastHistoryYear">
+                            </div>
+
+                            <p>ii) Heart Disease</p>
+                            <div style="display: flex; justify-content: space-evenly;">
+                              <input type="number" value="{{bunny.patient_details.HeartDiseaseMonth}}"
+                                name="admission_heartDiseaseMonth" class="form-control" placeholder="Month">
+                              <input class="form-control" value="{{bunny.patient_details.HeartDiseaseYear}}"
+                                type="number" placeholder="Year" name="admission_heartDiseaseYear">
+                            </div>
+                            
+                            <p>iii) Hypertension</p>
+                            <div style="display: flex; justify-content: space-evenly;">
+                              <input type="number" value="{{bunny.patient_details.HypertensionMonth}}"
+                                class="form-control" name="admission_hypertensionMonth" placeholder="Month">
+                              <input class="form-control" value="{{bunny.patient_details.HypertensionYear}}"
+                                type="number" placeholder="Year" name="admission_hypertensionYear">
+                            </div>
+                            <p>iv) Hyperlipidemias</p>
+                            <div style="display: flex; justify-content: space-evenly;">
+                              <input type="number" value="{{bunny.patient_details.HyperlipidemiasMonth}}"
+                                class="form-control" name="admission_HyperlipidemiasMonth" placeholder="Month">
+                              <input class="form-control" value="{{bunny.patient_details.HyperlipidemiasYear}}"
+                                type="number" placeholder="Year" name="admission_HyperlipidemiasYear">
+                            </div>
+                            <p>v) Osteoarthritis</p>
+                            <div style="display: flex; justify-content: space-evenly;">
+                              <input type="number" value="{{bunny.patient_details.OsteoarthritisMonth}}"
+                                class="form-control" name="admission_osteoarthritisMonth" placeholder="Month">
+                              <input class="form-control" value="{{bunny.patient_details.OsteoarthritisYear}}"
+                                type="number" placeholder="Year" name="admission_osteoarthritisYear">
+                            </div>
+                            <p>vi) Asthma / COPD / Bronchitis</p>
+                            
+                            <div style="display: flex; justify-content: space-evenly;">
+                              <input type="number" value="{{bunny.patient_details.AsthmaOrCOPDOrBronchitisMonth}}"
+                                class="form-control" name="admission_asthmaOrCOPDOrBronchitisMonth" placeholder="Month">
+                              <input class="form-control" value="{{bunny.patient_details.AsthmaOrCOPDOrBronchitisYear}}"
+                                type="number" placeholder="Year" name="admission_asthmaOrCOPDOrBronchitisYear">
+                            </div>
+
+                            <p>vii) Cancer</p>
+                            <div style="display: flex; justify-content: space-evenly;">
+                              <input type="number" value="{{bunny.patient_details.CancerMonth}}" class="form-control"
+                                name="admission_cancerMonth" placeholder="Month">
+                              <input class="form-control" value="{{bunny.patient_details.CancerYear}}" type="number"
+                                placeholder="Year" name="admission_cancerYear">
+                            </div>
+                            <p>viii) Alcohol or Drug Abuse</p>
+                            <div style="display: flex; justify-content: space-evenly;">
+                              <input type="number" value="{{bunny.patient_details.AlcoholOrDrugAbuseMonth}}"
+                                class="form-control" name="admission_alcoholOrDrugAbuseMonth" placeholder="Month">
+                              <input class="form-control" value="{{bunny.patient_details.AlcoholOrDrugAbuseYear}}"
+                                type="number" placeholder="Year" name="admission_alcoholOrDrugAbuseYear">
+                            </div>
+                            <p for="exampleInputEmail1">ix) Any HIV or STD / Related Aliments</p>
+                            <div style="display: flex; justify-content: space-evenly;">
+                              <input type="number" value="{{bunny.patient_details.RelatedAlimentsMonth}}"
+                                class="form-control" name="admission_anyHIVOrSTDOrRelatedAlimentsMonth"
+                                placeholder="Month">
+                              <input class="form-control" value="{{bunny.patient_details.RelatedAlimentsYear}}"
+                                type="number" placeholder="Year" name="admission_anyHIVOrSTDOrRelatedAlimentsYear">
+                            </div>
+                            <p>Any Other Aliments Give Details</p>
+                            <input class="form-control" name="admission_anyOtherAliments" type="text"
+                              value="{{bunny.patient_details.OtherAliments}}" placeholder="">
+
+                            <!-- <button name="save" value="{{system}}"
+                              onclick="alert(`form saved successfully`);$(`#msform`).submit();"
+                              class="btn btn-primary btn-lg"> Generate PDF Form </button> -->
+
+                            <br><br>
+
+                            <button name="save" value="{{system}}" onclick="return validation()"
+                              class="btn btn-primary btn-lg"> Save </button>
+                            <!-- onclick="location.href = '/'" -->
+                            <!-- Modal start-->
+
+                            <!-- <input class="action-button btn btn-warning" style="color: white;" name="Query"
+                              type="button" onclick="queryFunction(`{{akey}}`,`{{email}}`);" value="Query" /> -->
+
+
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+                      <button style="background-color: rgb(255, 166, 0); width: 140px; border-radius: 20px; color: white; margin-bottom: -80px; height: 40px;"
+                        name="save" value="{{system}}" onclick="return validation()"
+                              class="btn btn-primary btn-lg"> Save Form </button>
+        </form>
+      </div>
+
+      <div class="container" style="margin-left: 15%; align-self: center;">
+        <div style="display: flex; flex-direction: row; margin: 5px;">
+          <div>
+            
+            <button type="button" class="btn btn-warning" data-toggle="modal"
+              onclick="uploadAndViewDocuments();window.location.href='#popup4'"
+              style=" background-color: rgb(255, 166, 0); width: 200px; border-radius: 20px; color: white; margin: 5px; height: 40px;"
+              data-target="#exampleModal" id="viewDocuments">
+              View RateList
+            </button>
+
+          </div>
+          <div>
+            {% if bunny.hospital_details.datasaved == "true" %}
+              <form action="/generateform" target="_blank" method="POST">
+                {% csrf_token %}
+                <button
+                  style="background-color: rgb(255, 166, 0); width: 200px; border-radius: 20px; color: white; margin: 5px; height: 40px;"
+                  name="finalvalue" value="{{system}}"
+                  class="btn btn-warning">Generate Pre Auth Form </button>
+              </form>
+            {% endif %}
+          
+          </div>
+          <div>
+            
+            <button type="button" class="btn btn-warning" data-toggle="modal"
+              onclick="uploadAndViewDocuments();window.location.href='#popup2'"
+              style=" background-color: rgb(255, 166, 0); width: 200px; border-radius: 20px; color: white; margin: 5px; height: 40px;"
+              data-target="#exampleModal" id="viewDocuments">
+              View Documents
+            </button>
+          
+          </div>
+          <div>
+
+            <button type="button" class="btn btn-warning" data-toggle="modal"
+              onclick="uploadAndViewDocuments();window.location.href='#popup3'"
+              style=" background-color: rgb(255, 166, 0); width: 200px; border-radius: 20px; color: white; margin: 5px; height: 40px;"
+              data-target="#exampleModal" id="viewDocuments">
+              Send Mail
+            </button>
+
+          </div>
+
+
+        </div>
+        <input type="text" style="visibility: hidden;" value="{{email}}" id="emaildata">
+        <div id="popup2" class="overlay" style="z-index: 100;">
+
+          <div class="popup" onload="myShowData()" style="width: 60%; height: 70%; overflow-y: auto;">
+            <a class="close" style="color: red; font-weight: bolder;" href="#">&times;</a>
+            <div style="display: flex;flex-wrap: wrap;">
+
+              <div class="row">
+                <div class="column">
+                  <img src="{{Aadhar_card_Front}}" onclick="window.location.href='{{Aadhar_card_Front}}'"
+                    style="cursor: pointer;" class="img-fluid" alt="Responsive image" id="Aadhar_card_Front">
+
+                  <img src="{{Aadhar_Card_Back}}" onclick="window.location.href='{{Aadhar_Card_Back}}'"
+                    style="cursor: pointer;" class="img-fluid" alt="Responsive image" id="Aadhar_Card_Back">
+                </div>
+                <div class="column">
+                  <img src="{{Health_card}}" onclick="window.location.href='{{Health_card}}'" style="cursor: pointer;"
+                    class="img-fluid" alt="Responsive image" id="Health_card">
+
+                </div>
+                <div class="column">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <script>
+
+        </script>
+        <div id="popup4" class="overlay" style="z-index: 100;">
+
+          <div class="popup" onload="myShowData()" style="width: 60%; height: 70%; overflow-y: auto;">
+            <a class="close" style="color: red; font-weight: bolder;" href="#">&times;</a>
+            <div style="display: flex;flex-wrap: wrap;">
+
+              <div class="row">
+                <div class="column">
+                  <img id="viewRateList" src="{{Aadhar_Card_Back}}" style="cursor: pointer;" width="1000px"
+                    class="img-fluid" alt="Responsive image" id="UrlotherDocuments">
+
+                </div>
+                <div class="column">
+                  <img id="viewRateList" src="{{Aadhar_card_Front}}" style="cursor: pointer;" width="1000px"
+                    class="img-fluid" alt="Responsive image" id="UrlotherDocuments">
+
+                </div>
+                <div class="column">
+                  <img id="viewRateList" src="{{Health_card}}" style="cursor: pointer;" width="1000px" class="img-fluid"
+                    alt="Responsive image" id="UrlotherDocuments">
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="popup3" class="overlay" style="z-index: 100;">
+
+          <div class="popup" style="width: 60%; height: 90%; overflow-y: auto; text-align: left;">
+            <div id="wait"
+            style="display:none;width:100%;height:100%;position:absolute;padding:2px; z-index: 9999; backdrop-filter: blur(5px);">
+            <img src='../static/dist/img/animation_300_kritqvcb.gif' id="loadingImg" width="200" height="200"
+              style="margin-top:15%;margin-left:40%;" />
+          </div>
+            <p style="text-align: center;">Email To Insurance Company</p>
+            <a class="close" href="#">&times;</a>
+            <div style="display: flex;flex-wrap: wrap;">
+              <form method="POST" action="/sendmail" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input name="to" type="text" style="width: 800px; height: 30px; border-radius: 15px;"
+                  class="form-control" placeholder="To"> <br>
+                <input name="cc" type="text"
+                  style="width: 800px; height: 30px; border-radius: 15px; margin-top: -20px !important;"
+                  class="form-control" placeholder="CC"> <br>
+                <input name="email_title" type="text"
+                  style="width: 800px; height: 30px; border-radius: 15px;margin-top: -20px !important;"
+                  class="form-control" placeholder="Mail Title"> <br>
+
+                <input name="email_content" type="text"
+                  style="width: 800px; height: 100px; border-radius: 15px;margin-top: -20px !important;"
+                  class="form-control" placeholder="Mail Body">
+
+
+                <div class="row">
+                  <div class="column">
+                    <label for="exampleInputEmail1" style="font-size: smaller;" class="smallText">Upload Signed Off Pre
+                      Auth Form</label>
+                    <div style="display: flex;">
+                      <input type="file" name="uploadSigned" id="uploadSigned" multiple>
+                      <!-- accept=".xlsx,.xls,image/,.doc,audio/,.docx,video/*,.ppt,.pptx,.txt,.pdf" -->
+                    </div>
+
+                    <br> <br>
+                    <input type="text" style="visibility: hidden;" id="hiddendata" value="{{email}}+{{casenumber}}">
+                    <script>
+                      hiddendata = document.getElementById('hiddendata').value;
+                      // console.log("mera id data",hiddendata)
+                      myArr = hiddendata.split("+");
+                      myid = myArr[0]
+
+                      mycase = myArr[1]
+                      console.log(myid, "or ", mycase)
+                      doc_ref = db.collection("hospitals").doc(email)
+
+                      function uploadSignedfun() {
+                        $("#wait").css("display", "block");
+
+                        const ref = firebase.storage().ref()
+                        for (let i = 0; i < uploadSigned.files.length; i++) {
+                          const file = document.getElementById('uploadSigned').files[i]
+                          const name = file.name
+                          const metadata = {
+                            contentType: file.type
+                          }
+                          const task = ref.child(`${myid}/${mycase}/UrluploadSignedPreAuth/UrluploadSignedPreAuth${i}`).put(file, metadata)
+                          task
+                            .then(snapshot => snapshot.ref.getDownloadURL())
+                            .then(url => {
+                              db.collection('hospitals').doc(myid).collection('cases').doc(mycase).get()
+                                .then((docSnapshot) => {
+                                  if (docSnapshot.exists) {
+                                    db.collection('hospitals').doc(myid).collection('cases').doc(mycase).set({
+                                      'UrluploadSignedPreAuth': {
+                                        [`UrluploadSignedPreAuth${i}`]: url
+                                      },
+                                    }, { merge: true })
+                                  }
+                                  else {
+                                    db.collection('hospitals').doc(myid).collection('cases').doc(mycase).set({
+                                      'UrluploadSignedPreAuth': {
+                                        [`UrluploadSignedPreAuth${i}`]: url
+                                      },
+                                    }, { merge: true })
+                                  }
+                                });
+
+                              $("#wait").css("display", "none");
+                            })
+
+                        }
+
+
+                      }
+                    </script>
+                    <label for="exampleInputEmail1" style="font-size: smaller; " class="smallText">Upload Patients
+                      Health
+                      Id Card</label>
+                    <input type="file" name="uploadPatientsHealth" id="uploadPatientsHealth"
+                      accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
+
+                    <script>
+                      function uploadPatientsfun() {
+                        $("#wait").css("display", "block");
+
+                        for (let i = 0; i < uploadPatientsHealth.files.length; i++) {
+                          const ref = firebase.storage().ref()
+                          const file = document.getElementById('uploadPatientsHealth').files[i]
+                          const name = file.name
+                          const metadata = {
+                            contentType: file.type
+                          }
+                          const task = ref.child(`${myid}/${mycase}/UrluploadPatientsHealthIDCard/UrluploadPatientsHealthIDCard${i}`).put(file, metadata)
+                          task
+                            .then(snapshot => snapshot.ref.getDownloadURL())
+                            .then(url => {
+                              console.log(url)
+                              urlTwo = url
+                              db.collection('hospitals').doc(myid).collection('cases').doc(mycase).get()
+                                .then((docSnapshot) => {
+                                  if (docSnapshot.exists) {
+                                    db.collection('hospitals').doc(myid).collection('cases').doc(mycase).set({
+                                      'UrluploadPatientsHealthIDCard': {
+                                        [`UrluploadPatientsHealthIDCard${i}`]: url,
+                                      }
+                                    }, { merge: true })
+                                  }
+                                  else {
+                                    db.collection('hospitals').doc(myid).collection('cases').doc(mycase).set({
+                                      'UrluploadPatientsHealthIDCard': {
+                                        [`UrluploadPatientsHealthIDCard${i}`]: url,
+                                      }
+                                    }, { merge: true })
+                                  }
+                                });
+
+                              $("#wait").css("display", "none");
+                            })
+
+                        }
+
+
+                      }
+                    </script>
+                  </div>
+                  <div class="column">
+                    <label for="exampleInputEmail1" style="font-size: smaller;" class="smallText">Upload Consultation
+                      Papers</label>
+
+                    <input type="file" name="uploadConsultation" id="uploadConsultation"
+                      accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
+
+                    <script>
+                      function uploadConsultationfun() {
+                        $("#wait").css("display", "block");
+                        for (let i = 0; i < uploadConsultation.files.length; i++) {
+                          const ref = firebase.storage().ref()
+                          const file = document.getElementById('uploadConsultation').files[i]
+                          const name = file.name
+                          const metadata = {
+                            contentType: file.type
+                          }
+                          const task = ref.child(`${myid}/${mycase}/UrluploadConsultation/UrluploadConsultation${i}`).put(file, metadata)
+                          task
+                            .then(snapshot => snapshot.ref.getDownloadURL())
+                            .then(url => {
+                              db.collection('hospitals').doc(myid).collection('cases').doc(mycase).get()
+                                .then((docSnapshot) => {
+                                  if (docSnapshot.exists) {
+                                    db.collection('hospitals').doc(myid).collection('cases').doc(mycase).set({
+                                      'UrluploadConsultation': {
+                                        [`UrluploadConsultation${i}`]: url
+                                      },
+                                    }, { merge: true })
+                                  }
+                                  else {
+                                    db.collection('hospitals').doc(myid).collection('cases').doc(mycase).set({
+                                      'UrluploadConsultation': {
+                                        [`UrluploadConsultation${i}`]: url
+                                      },
+                                    }, { merge: true })
+                                  }
+                                });
+
+                              $("#wait").css("display", "none");
+                            })
+
+                        }
+
+
+                      }
+                    </script>
+                    <br> <br>
+
+
+                    <label for="exampleInputEmail1" style="font-size: smaller;" class="smallText">ID Proof
+                    </label>
+                    <input type="file" name="idproofid" id="idproofid"
+                      accept=".xlsx,.xls,image/*,.doc,audio/*,.docx,video/*,.ppt,.pptx,.txt,.pdf" multiple>
+
+                    <script>
+                      function idprooffun() {
+
+                        $("#wait").css("display", "block");
+
+                        for (let i = 0; i < idproofid.files.length; i++) {
+
+                          const ref = firebase.storage().ref()
+                          const file = document.getElementById('idproofid').files[i]
+                          const name = file.name
+                          const metadata = {
+                            contentType: file.type
+                          }
+                          const task = ref.child(`${myid}/${mycase}/Urlidproof/Urlidproof${i}`).put(file, metadata)
+                          task
+                            .then(snapshot => snapshot.ref.getDownloadURL())
+                            .then(url => {
+
+                              urlThree = url
+                              db.collection('hospitals').doc(myid).collection('cases').doc(mycase).get()
+                                .then((docSnapshot) => {
+                                  if (docSnapshot.exists) {
+                                    db.collection('hospitals').doc(myid).collection('cases').doc(mycase).set({
+                                      'Urlidproof': {
+                                        [`Urlidproof${i}`]: url
+                                      },
+                                    }, { merge: true })
+                                  }
+                                  else {
+                                    db.collection('hospitals').doc(myid).collection('cases').doc(mycase).set({
+                                      'Urlidproof': {
+                                        [`Urlidproof${i}`]: url
+                                      }
+                                    }, { merge: true })
+                                  }
+                                });
+
+                              $("#wait").css("display", "none");
+
+                            })
+
+                        }
+
+
+                      }
+                    </script>
+
+                  </div>
+                  <label for="exampleInputEmail1" style="font-size: smaller; margin-top: 50px;" class="smallText">Other
+                    Documents</label>
+                  <input type="file" name="otherDocumentsg" id="otherDocumentsg" multiple>
+                  <input type="file" style="visibility: hidden;" multiple>
+
+                  <script>
+                    function otherDocumentsfun() {
+                      $("#wait").css("display", "block");
+                      for (let i = 0; i < otherDocumentsg.files.length; i++) {
+
+                        const ref = firebase.storage().ref()
+                        const file = document.getElementById('otherDocumentsg').files[i]
+                        const name = file.name
+                        const metadata = {
+                          contentType: file.type
+                        }
+                        const task = ref.child(`${myid}/${mycase}/UrlotherDocuments/UrlotherDocuments${i}`).put(file, metadata)
+                        task
+                          .then(snapshot => snapshot.ref.getDownloadURL())
+                          .then(url => {
+                            db.collection('hospitals').doc(myid).collection('cases').doc(mycase).get()
+                              .then((docSnapshot) => {
+                                if (docSnapshot.exists) {
+                                  db.collection('hospitals').doc(myid).collection('cases').doc(mycase).set({
+                                    'UrlotherDocuments': {
+                                      [`UrlotherDocuments${i}`]: url
+                                    },
+                                  }, { merge: true })
+                                }
+                                else {
+                                  db.collection('hospitals').doc(myid).collection('cases').doc(mycase).set({
+                                    'UrlotherDocuments': {
+                                      [`UrlotherDocuments${i}`]: url
+                                    }
+                                  }, { merge: true })
+                                }
+                              });
+
+                            $("#wait").css("display", "none");
+                          })
+                      }
+
+                    }
+                  </script>
+                  <div class="row" style="margin-top: -25px !important;">
+                    <div class="column">
+                      <input id="bird" type="button"
+                        style=" background-color: rgb(255, 166, 0); width: 200px; border-radius: 20px; margin-top: 50px;float: right;height: 40px; margin-right: 20px; "
+                        class="btn btn-warning"
+                        onclick="uploadSignedfun(),uploadPatientsfun(), uploadConsultationfun(),idprooffun(), otherDocumentsfun()"
+                        value="Attach Files">
+                    </div>
+                    <div class="column" style="width: 200px !important;">
+                      <button name="sendbtn"
+                        style=" background-color: rgb(255, 166, 0); width: 200px; border-radius: 20px; margin-top: 50px;height: 40px;"
+                        class="btn btn-warning" value="{{bunny.patient_details.Insurance_Company}}+{{system}}"> Send Mail
+                      </button>
+                    </div>
+                  </div>
+
+
+
+                </div>
+
+
+              </form>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Profile</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">{{role}}</div>
+            <div class="modal-footer">
+              <form action="/logout" method="post">
+                {% csrf_token %}
+                <i class="ni ni-single-02 text-red"></i>
+                <span class="nav-link-text"><input class="ml-3" style="border: none; background: transparent"
+                    type="submit" value="Logout" /></span>
+              </form>
+
+              <button type="button" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+  <!-- ./wrapper -->
+
+
+  <!-- jQuery -->
+
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-storage.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-firestore.js"></script>
+  <script>
+    // For Demo Purpose [Changing input group text on focus]
+    $(function () {
+      $("input, select").on("focus", function () {
+        $(this)
+          .parent()
+          .find(".input-group-text")
+          .css("border-color", "#80bdff");
+      });
+      $("input, select").on("blur", function () {
+        $(this)
+          .parent()
+          .find(".input-group-text")
+          .css("border-color", "#ced4da");
+      });
+    });
+  </script>
+
+
+  <script>
+
+    function uploadAndViewDocuments() {
+      alert('Make Sure You Fill The Form First')
+    }
+    // TODO: Replace the following with your app's Firebase project configuration
+    // For Firebase JavaScript SDK v7.20.0 and later, `measurementId` is an optional field
+
+    var firebaseConfig = {
+      apiKey: "AIzaSyDlZMu8lypZDEhRpMVKlD3JcTuvItFaG2A",
+      authDomain: "bimaxpress-cashless.firebaseapp.com",
+      projectId: "bimaxpress-cashless",
+      storageBucket: "bimaxpress-cashless.appspot.com",
+      messagingSenderId: "577257002368",
+      appId: "1:577257002368:web:489252768c47b398465d65",
+      measurementId: "G-Y8B68GW5YX"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    console.log("Ye Mera Firebase Hai", firebase)
+
+
+    var db = firebase.firestore();
+    var grv = []
+
+
+
+    var emaildata = document.getElementById('emaildata').value;
+    console.log("abbi vala", emaildata)
+    const cityRef = db.collection('hospitals').doc(emaildata);
+    var imgurl
+    async function getdata() {
+      var tpa = document.getElementById('tpa').value;
+      const doc = await cityRef.get();
+      if (!doc.exists) {
+        console.log('No such document!');
+      } else {
+        grv = doc.data()['Empanelled_companies'];
+      }
+      imgurl = grv[tpa]['Ratelist'];
+      console.log(imgurl);
+      document.getElementById('viewRateList').src = imgurl;
+    }
+
+
+    // getdata()
+    // function getdata() {
+    //   db.settings({ timestampsInSnapshots: true });
+    //   db.collection('hospitals').doc(emaildata).get().then((snapshot) => {
+
+    //     snapshot.docs.forEach(doc => {
+    //       let items = doc.data();
+
+    //       /* Make data suitable for rendering */
+    //       items = JSON.stringify(items);
+    //       console.log(items)
+
+    //       /* Update the components state with query result */
+    //       this.setState({ items: items })
+    //     });
+
+    //   });
+    // }
+
+  </script>
+
+
+  <script src="{% static '/plugins/jquery/jquery.min.js' %}"></script>
+  <!-- jQuery UI 1.11.4 -->
+  <script src="{% static '/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $.widget.bridge("uibutton", $.ui.button);
+  </script>
+  <!-- Bootstrap 4 -->
+  <script src="{% static '/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <!-- ChartJS -->
+  <script src="{% static '/plugins/chart.js/Chart.min.js' %}"></script>
+  <!-- Sparkline -->
+  <script src="{% static '/plugins/sparklines/sparkline.js' %}"></script>
+  <!-- JQVMap -->
+  <script src="{% static '/plugins/jqvmap/jquery.vmap.min.js' %}"></script>
+  <script src="{% static '/plugins/jqvmap/maps/jquery.vmap.usa.js' %}"></script>
+  <!-- jQuery Knob Chart -->
+  <script src="{% static '/plugins/jquery-knob/jquery.knob.min.js' %}"></script>
+  <!-- daterangepicker -->
+  <script src="{% static '/plugins/moment/moment.min.js' %}"></script>
+  <script src="{% static '/plugins/daterangepicker/daterangepicker.js' %}"></script>
+  <!-- Tempusdominus Bootstrap 4 -->
+  <script src="{% static '/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+  <!-- Summernote -->
+  <script src="{% static '/plugins/summernote/summernote-bs4.min.js' %}"></script>
+  <!-- overlayScrollbars -->
+  <script src="{% static '/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' %}"></script>
+  <!-- AdminLTE App -->
+  <script src="{% static '/dist/js/adminlte.js' %}"></script>
+  <!-- AdminLTE for demo purposes -->
+  <script src="{% static '/dist/js/demo.js' %}"></script>
+  <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+  <script src="{% static '/dist/js/pages/dashboard.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</body>
+{% load static %}
+<script src="{% static '/dist/js/pageAccordian.js' %}"></script>
+
+</html> {% endcomment %}
